@@ -9,15 +9,16 @@ import MapItem from './MapItem';
 function MapList(props) {
     return (
     <ul className={classes.list}>
-            {props.boards.map(board =>  
-            <MapItem 
+            {props.boards.map(board =>  (
+            <MapItem
                 key={board.id} 
                 id={board.id} 
-                image={board.image}
-                title={board.title}
-                address={board.address}
+                image={board.image} 
+                title={board.title} 
+                address={board.address} 
                 description={board.description}
-            />)}
-        </ul>
-    )
+            />
+        ))}
+    </ul>
+    );
 }   export default MapList;

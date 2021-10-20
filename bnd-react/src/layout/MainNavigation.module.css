@@ -1,20 +1,25 @@
+/*  Author: Jonathan Dimercurio     Creation Date:
+ *  Description: 
+ *
+ */
+
 .header {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 200;
-  border: 3px solid #000000;
+  border: 2.5px solid #000000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #00002e;
-  padding: 0% 5%;
+  background-color: #dfdfdf;
+  padding: 0% 2%;
   border-radius: 25px;
 }
 
 .logo {
-  font-size: 2rem;
-  color: white;
+  font-size: 1.5rem;
+  color: ash;
   font-weight: bold;
 }
 
@@ -26,20 +31,22 @@
   align-items: baseline;
 }
 
+/* Link color for nav bar
+ * */
 .header li {
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .header a {
   text-decoration: none;
   font-size: 1.5rem;
-  color: #fcb8d2;
+  color: #000000;
 }
 
 .header a:hover,
 .header a:active,
 .header a.active {
-  color: white;
+  color: darkred;
 }
 
 .badge {

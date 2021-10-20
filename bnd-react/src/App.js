@@ -1,20 +1,18 @@
-/*  Author: Jonathan Dimercurio     Date:
- *  
+/*  Author: Jonathan Dimercurio     Creation Date:
+ *  Description: App.js handles the internal routing
+ *      of the web application. It is designed to contain
+ *      nothing else.
 */
 
 import { Route, Switch } from 'react-router-dom';
 import AddMapPage from './layout/pages/AddMap';
 import AllMapsPage from './layout/pages/AllMaps';
 import HomePage from './layout/pages/Home';
-import MainNavigation from './layout/MainNavigation';
+import Layout from './layout/Layout.js';
 
 function App() {
-    // localhost:3000/'path' - during deployment
-    //
-
   return (
-    <div>
-    <MainNavigation />
+    <Layout>  
     <Switch>
         <Route path='/' exact>
             <HomePage />
@@ -28,7 +26,7 @@ function App() {
             <AddMapPage />
         </Route>
     </Switch>
-    </div>
+    </Layout>
   );
 }
 

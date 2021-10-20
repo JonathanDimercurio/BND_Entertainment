@@ -1,8 +1,5 @@
-/*  Author: Date:
- *  Description:
-*/
 import { Link } from 'react-router-dom';
-import classes from './MainNavigation.module.css';
+import classes from './MainNavigationTest.module.css';
 
 function MainNavigation() {
     return (
