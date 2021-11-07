@@ -8,6 +8,7 @@ import Login from "./Login"
 import PrivateRoute from "./PrivateRoute"
 import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
+import AddMap from "./layout/pages/a"
 
 function App() {
   return (
@@ -15,21 +16,24 @@ function App() {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
-      <div className="w-100" style={{ maxWidth: "400px" }}>
-        <Router>
-          <AuthProvider>
-            <Switch>
-              <PrivateRoute exact path="/" component={Dashboard} />
-              <PrivateRoute path="/update-profile" component={UpdateProfile} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route path="/forgot-password" component={ForgotPassword} />
-            </Switch>
-          </AuthProvider>
-        </Router>
-      </div>
-    </Container>
-  )
+<div className="w-100" style={{ maxWidth: "400px" }}>
+    <Router>
+    <AuthProvider>
+    <Switch>
+        <PrivateRoute exact path="/" component={Dashboard} />
+        <PrivateRoute path="/update-profile" component={UpdateProfile} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+            <Route path="/add-map" component={AddMap} />
+            <Route path="/all-maps" component={AllMaps} />
+            
+    </Switch>
+    </AuthProvider>
+    </Router>
+</div>
+</Container>
+)
 }
 
 export default App
