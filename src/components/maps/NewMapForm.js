@@ -1,7 +1,7 @@
 import Card from '../../acts/ui/Card';
-import classes from './MapAddForum.module.css';
+import classes from './NewMapForm.module.css';
 
-function MapAddFourm() {
+function NewMapForm() {
   function submitHandler(event) {
     event.preventDefault();
 
@@ -33,4 +33,4 @@ function MapAddFourm() {
   );
 }
 
-export default NewMeetupForm;
+export default NewMapForm;

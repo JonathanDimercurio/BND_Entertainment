@@ -1,11 +1,10 @@
 /*  Author: Date:
  *  Description:
  */
-
-import NewMapForm from '../components/meetups/NewMapForm';
+import NewMapForm from './NewMapForm';
 
 function AddMapPage() {
-  function addMeetupHandler(meetupData) {
+  function addMapHandler(meetupData) {
     fetch(
       'https://bnd-entertainment-default-rtdb.firebaseio.com/maps.json',
       {
