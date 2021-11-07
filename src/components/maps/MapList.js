@@ -3,21 +3,24 @@
  *
  */
 
-import classes from './MapList.module.css';
 import MapItem from './MapItem';
+import classes from './MapList.module.css';
 
 function MapList(props) {
-    return (
+  return (
     <ul className={classes.list}>
-            {props.boards.map(board =>  
-            <MapItem 
-                key={board.id} 
-                id={board.id} 
-                image={board.image}
-                title={board.title}
-                address={board.address}
-                description={board.description}
-            />)}
-        </ul>
-    )
-}   export default MapList;
+      {props.MapData.map((map) => (
+        <MapItem
+          key={map.id}
+          id={map.id}
+          image={map.image}
+          title={map.title}
+          address={map.address}
+          description={map.description}
+        />
+      ))}
+    </ul>
+  );
+}
+
+export default MapList;

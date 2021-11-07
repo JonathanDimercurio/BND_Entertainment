@@ -22,7 +22,7 @@ function App() {
 
     <Switch>
           <Route path="/" component={MapsPage} />
-            <Route path="/add-map" component={AddMap} />
+          <Route path="/add-map" component={AddMap} />
             
             
     </Switch>

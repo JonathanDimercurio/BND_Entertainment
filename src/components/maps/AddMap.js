@@ -4,12 +4,12 @@
 import NewMapForm from './NewMapForm';
 
 function AddMapPage() {
-  function addMapHandler(meetupData) {
+  function addMapHandler(mapData) {
     fetch(
       'https://bnd-entertainment-default-rtdb.firebaseio.com/maps.json',
       {
         method: 'POST',
-        body: JSON.stringify(meetupData),
+        body: JSON.stringify(mapData),
         headers: {
           'Content-Type': 'application/json'
         }
