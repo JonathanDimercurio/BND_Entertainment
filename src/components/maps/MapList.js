@@ -9,7 +9,7 @@ import classes from './MapList.module.css';
 function MapList(props) {
   return (
     <ul className={classes.list}>
-      {props.MapData.map((map) => (
+      {props.maps.map((map) => (
         <MapItem
           key={map.id}
           id={map.id}
