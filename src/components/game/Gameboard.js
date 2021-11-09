@@ -4,7 +4,7 @@ import "./Gameboard.modal.css"
 
 export default class Gameboard extends React.Component
 {
-    m=10;
+    m=16;
     n=10;
     
 
@@ -12,17 +12,14 @@ export default class Gameboard extends React.Component
         
     }
 
-    composeGrid = () =>{
-
-    }
 
     constructor(props){
         super(props);  
-        this.grid =  Array(this.m).fill(<Square m={this.m} n ={this.n} />).map(x => Array(this.n).fill(<Square m={this.m} n ={this.n} />));
+        this.grid =  Array(this.m).fill().map(x=> Array(this.n).fill(<Square  m={this.m} n ={this.n}/>));
     }
     
     componentDidMount() {
-
+        
     }
 
     render () {
@@ -31,13 +28,13 @@ export default class Gameboard extends React.Component
         style={{backgroundImage: "url("+this.props.location.state.MapName+")", 
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            backgroundSize: "100% 100%",
             overflow: "hidden",
         }}
         >
             {/* {this.grid.map((row)=>{row.map(index=>{return(<>index</>)})})} */}
-            {this.grid.map(row=>{
-                row.map(index=>{ return index})
+            {this.grid.map((row,key)=>{
+                row.map((index,i_key)=>{ return index})
                 return row})}
             {/*<img src={this.props.mapName} className="img" />*/}
         </div> 
@@ -52,14 +49,20 @@ class Square extends React.Component
     {
         super(props)
     }
+    
+    onclick = () =>{
+        console.log("clicked on me");
+    }
 
     render(){
         return( 
+
             this.props.image ?
-            <img src={this.props.image}  style={{position: "relative", display:"inline-block", width: 100/(this.props.m)+"%", height: 80/(this.props.n)+"%", border: "solid 1px black"}}/>
+            <img src={this.props.image}  onClick={this.onclick} style={{position: "relative", display:"inline-block", width: 100/(this.props.m)+"%", height: 93/(this.props.n)+"%", border: "solid 1px black"}}/>
                 :
-            <div  style={{position: "relative",display:"inline-block", width: 100/(this.props.m)+"%", height: 80/(this.props.n)+"%", border: "solid 1px black"}} />
-            
+            <div  onClick={this.onclick} style={{position: "relative",display:"inline-block", width: 100/(this.props.m)+"%", height: 93/(this.props.n)+"%", border: "solid 1px black"}} />
+           
+    
         );
     }
 }
