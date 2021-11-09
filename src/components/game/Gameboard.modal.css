@@ -1,0 +1,33 @@
+ .map {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  border: 10px solid black;
+  border-bottom: 100px solid black;
+ }
+ 
+ .no-border {
+    border-collapse: collapse;
+  }
+  
+  .square {
+    position: relative;
+    width: 83px;
+    height: 83px;
+  }
+  
+  .light {
+    background-color: #FFCE9E;
+  }
+  
+  .dark {
+    background-color: #D18B47;
+  }
+
+  .img {
+    position: relative;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    height:100%;
+    display: block;
+  }
