@@ -1,7 +1,19 @@
+import { Button } from 'react-bootstrap';
 import Card from '../ui/Card';
 import classes from './MapItem.module.css';
+import {useHistory} from 'react-router-dom'
+import reactDom from 'react-dom';
+import React from 'react';
+
 
 function MapItem(props) {
+
+  React.useEffect(
+    ()=>{
+      console.log("MapItem "+props.image);
+    },
+    );
+  const history = useHistory();
   return (
     <li className={classes.item}>
       <Card>
@@ -15,6 +27,15 @@ function MapItem(props) {
         </div>
         <div className={classes.actions}>
           <button>To Favorites</button>
+        </div>
+        <div className={classes.actions}>
+          <Button onClick={() => history.push(
+              '/Game',
+            {MapName : props.image},
+
+            )} >
+            Click button to view product
+          </Button>
         </div>
       </Card>
     </li>
