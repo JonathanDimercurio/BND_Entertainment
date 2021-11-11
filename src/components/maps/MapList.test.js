@@ -18,6 +18,6 @@ describe("MapItem", () => {
         }];
         render(<MapList maps={mockData} />);
         expect(screen.getByText("Test Map 1")).toBeInTheDocument();
-        expect(screen.getByText("Test Map 1")).toBeInTheDocument();
+        expect(screen.getByText("Test Map 2")).toBeInTheDocument();
     });
 });
