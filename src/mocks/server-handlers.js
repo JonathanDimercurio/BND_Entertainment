@@ -12,7 +12,6 @@ const handlers = [
         }]));
     }),
     rest.post(MAPS, async (req, res, ctx) => {
-        console.log("Hello from the maps post handler");
         //const map = JSON.parse(req.body);
         // TODO: whatever other things you need to do with this map
         return res(ctx.json({success: true}));
