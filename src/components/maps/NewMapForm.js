@@ -2,6 +2,7 @@ import { useRef } from 'react';
 
 import Card from '../ui/Card';
 import classes from './NewMapForm.module.css';
+import { IsText, IsURL } from '../../util/Validation';
 
 function NewMapForm(props) {
   const titleInputRef = useRef();
@@ -16,6 +17,14 @@ function NewMapForm(props) {
     const enteredImage = imageInputRef.current.value;
     const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
+
+    if (!IsText(enteredTitle) ||
+        !IsURL(enteredImage) ||
+        !IsText(enteredAddress) ||
+        !IsText(enteredDescription)
+    ) {
+        return;
+    }
 
     const MapData = {
       title: enteredTitle,

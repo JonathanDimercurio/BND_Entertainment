@@ -29,7 +29,6 @@ describe("NewMapForm", () => {
             screen.getByRole('button', { name: /map/i })
         ).toBeInTheDocument();
     });
-    /*
     it ("should validate form fields", async () => {
         const mockSave = jest.fn();
         render(<NewMapForm onAddMap={mockSave}/>);
@@ -42,7 +41,6 @@ describe("NewMapForm", () => {
         //expect(await screen.findAllByRole("alert")).toHaveLength(3);
         expect(mockSave).not.toBeCalled();
     });
-    */
     it("should submit correct data", async () => {
         const mockSave = jest.fn();
         render(<NewMapForm onAddMap={mockSave}/>);
