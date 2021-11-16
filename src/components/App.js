@@ -1,13 +1,13 @@
 import React from "react"
-//import Signup from "./auth/Signup"
+import Signup from "./auth/Signup"
 import { Container } from "react-bootstrap"
-//import { AuthProvider } from "./auth/contexts/AuthContext"
+import { AuthProvider } from "./auth/contexts/AuthContext"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-//import Dashboard from "./auth/Dashboard"
-//import Login from "./auth/Login"
-//import PrivateRoute from "./auth/PrivateRoute"
-//import ForgotPassword from "./auth/ForgotPassword"
-//import UpdateProfile from "./auth/UpdateProfile"
+import Dashboard from "./auth/Dashboard"
+import Login from "./auth/Login"
+import PrivateRoute from "./auth/PrivateRoute"
+import ForgotPassword from "./auth/ForgotPassword"
+import UpdateProfile from "./auth/UpdateProfile"
 import AddMap from "./maps/AddMap"
 import MapsPage from "./maps/MapsPage"
 
@@ -19,14 +19,19 @@ function App() {
     >
 <div className="w-100" style={{ maxWidth: "400px" }}>
     <Router>
-
-    <Switch>
-          <Route path="/" component={MapsPage} />
-          <Route path="/add-map" component={AddMap} />
+        <AuthProvider>
+          <Switch>
+              <Route exact={true} path="/" component={Signup} />
+              <PrivateRoute path="/update-profile" component={UpdateProfile} />
+                  <Route path="/signup" component={Signup} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/forgot-password" component={ForgotPassword} />
+              <Route path="/map-list" component={MapsPage} />
+              <Route path="/add-map" component={AddMap} />
             
             
-    </Switch>
-
+          </Switch>
+        </AuthProvider>
     </Router>
 </div>
 </Container>
@@ -35,13 +40,6 @@ function App() {
 
 export default App
 
-//        <Route path="/" component={MapList} />
-          
-//        <PrivateRoute exact path="/" component={Dashboard} />
-//        <PrivateRoute path="/update-profile" component={UpdateProfile} />
-//            <Route path="/signup" component={Signup} />
-//            <Route path="/login" component={Login} />
-//            <Route path="/forgot-password" component={ForgotPassword} />
 
-//    </AuthProvider>
-//    <AuthProvider>
+    
+    
