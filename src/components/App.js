@@ -12,6 +12,7 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import AddMap from "./maps/AddMap"
 import MapsPage from "./maps/MapsPage"
 import Gameboard from "./game/Gameboard"
+import AddToken from "./tokens/AddToken"
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
                 <Route path="/" component={MapsPage} exact/>
                 <Route path="/add-map" component={AddMap} />
                 <Route path="/Game" component={Gameboard}/>
-                  
+                <Route path="/add-token" component={AddToken}/>                  
             </Switch>
           </Router>
         </div>
