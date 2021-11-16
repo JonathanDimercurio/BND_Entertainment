@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import MapList from './MapList';
 
 function MapsPage() {
