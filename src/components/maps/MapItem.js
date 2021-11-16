@@ -22,19 +22,19 @@ function MapItem(props) {
         </div>
         <div className={classes.content}>
           <h3>{props.title}</h3>
-          <address>{props.address}</address>
           <p>{props.description}</p>
         </div>
+        {/*
         <div className={classes.actions}>
           <button>To Favorites</button>
         </div>
+        */}
         <div className={classes.actions}>
           <Button onClick={() => history.push(
               '/Game',
-            {MapName : props.image},
-
+            {MapName : props.image,},
             )} >
-            Click button to view product
+            Use Map
           </Button>
         </div>
       </Card>
