@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import Card from '../ui/Card';
 import classes from './MapItem.module.css';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import reactDom from 'react-dom';
 import React from 'react';
 
@@ -24,27 +24,12 @@ function MapItem(props) {
           <h3>{props.title}</h3>
           <p>{props.description}</p>
         </div>
-        {/*
-        <div className={classes.actions}>
-          <button>To Favorites</button>
-        </div>
-<<<<<<< HEAD
-        <div className={classes.actions}>
-          <Button onClick={() => history.push(
-              '/Game',
-            {MapName : props.image},
-
-            )} >
-            Click button to view product
-=======
-        */}
         <div className={classes.actions}>
           <Button onClick={() => history.push(
               '/Game',
             {MapName : props.image,},
             )} >
             Use Map
->>>>>>> main
           </Button>
         </div>
       </Card>
