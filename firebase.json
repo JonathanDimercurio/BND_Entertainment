@@ -1,24 +1,39 @@
 {
-  "hosting": {
-    "public": "build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+  "database": {
+    "rules": "database.rules.json"
   },
   "emulators": {
+    "auth": {
+      "port": 9003
+    },
+    "functions": {
+      "port": 9004
+    },
+    "firestore": {
+      "port": 9005
+    },
+    "database": {
+      "port": 9006
+    },
     "hosting": {
-      "port": 5000
+      "port": 9007
+    },
+    "pubsub": {
+      "port": 9008
+    },
+    "storage": {
+      "port": 9009
     },
     "ui": {
-      "enabled": false
+      "enabled": true,
+      "port": 5040
     }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
