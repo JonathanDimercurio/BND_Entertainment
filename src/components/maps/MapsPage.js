@@ -2,7 +2,6 @@
  *  Author: Jonothan, Chris
  */
 import { useState, useEffect } from 'react';
-
 import MapList from './MapList';
 
 function MapsPage() {
