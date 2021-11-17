@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "./firebase";
+import { auth } from "./Firebase";
 
 export default function Signup() {
     const auth = getAuth();
@@ -10,11 +10,11 @@ export default function Signup() {
     const passwordInputRef = useRef();
     const confirmPasswordInputRef = useRef();
     
-    async function submitHandler() {
+    function submitHandler() {
         createUserWithEmailAndPassword(auth, emailInputRef, passwordInputRef)
             .then((userCredential) => {
-            // Signed in
             const user = userCredential.user;
+            console.log(user)
             // ...
           })
           .catch((error) => {
@@ -52,4 +52,4 @@ export default function Signup() {
     </div>
     </>
   )
-    }
+}

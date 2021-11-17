@@ -1,5 +1,6 @@
 /* REWRITTEIN NOV. 16, 2021 JD.*/
 import firebase from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import 'firebase/auth';
 
 // THIS IS DNB's CUSTOM CONFIG GENGERATED AT BUILD FROM
