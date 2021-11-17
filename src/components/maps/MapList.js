@@ -15,7 +15,6 @@ function MapList(props) {
           id={map.id}
           image={map.image}
           title={map.title}
-          address={map.address}
           description={map.description}
         />
       ))}

@@ -1,22 +1,34 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-import { getAuth } from 'firebase/auth';
+/* REWRITTEIN NOV. 16, 2021 JD.*/
+import firebase from "firebase/app";
+import 'firebase/auth';
 
-// Your web app's Firebase configuration
-//
+// THIS IS DNB's CUSTOM CONFIG GENGERATED AT BUILD FROM
+// .env.local - IF YOU CHANGE THIS YOU NEED TO BUILD AGAIN ~~~!!!!
+// The Keys are contained in .env.local to prevent local access.
+// DO NOT DEPLOY WITH KEYS RATHER THEN EVN.LOCAL VARIABLES ~!
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCiEmZiFZai9s__qMh4dz2NOmkDJ63A5o0",
-  authDomain: "bnd-entertainment.firebaseapp.com",
-  databaseURL: "https://bnd-entertainment-default-rtdb.firebaseio.com",
-  projectId: "bnd-entertainment",
-  storageBucket: "bnd-entertainment.appspot.com",
-  messagingSenderId: "326939803258",
-  appId: "1:326939803258:web:431251781675b2b98545c3"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+
+/*
+ READ.ME
+ Firebase services (like Cloud Firestore, Authentication,
+ Realtime Database, Remote Config, and more) are available
+ to import within individual sub-packages.
+ 
+ 
+ !- const app = initializeApp(firebaseConfig); -!
+ A Firebase App is a container-like object that stores common
+ configuration and shares authentication across Firebase
+ services. After you initialize a Firebase App object in your
+ code, you can add and start using Firebase services.
+ */

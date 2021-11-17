@@ -15,7 +15,6 @@ function NewMapForm(props) {
 
     const enteredTitle = titleInputRef.current.value;
     const enteredImage = imageInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
     if (!IsText(enteredTitle) ||
@@ -28,8 +27,7 @@ function NewMapForm(props) {
 
     const MapData = {
       title: enteredTitle,
-      image: enteredImage,
-      address: enteredAddress,
+      address: enteredImage,
       description: enteredDescription,
     };
 
@@ -44,12 +42,8 @@ function NewMapForm(props) {
           <input type='text' required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='image'>Map Image</label>
+          <label htmlFor='image'>Map URL</label>
           <input type='url' required id='image' ref={imageInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor='address'>Address</label>
-          <input type='text' required id='address' ref={addressInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor='description'>Description</label>
