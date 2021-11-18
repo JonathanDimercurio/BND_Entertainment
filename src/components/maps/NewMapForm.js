@@ -19,7 +19,6 @@ function NewMapForm(props) {
 
     if (!IsText(enteredTitle) ||
         !IsURL(enteredImage) ||
-        !IsText(enteredAddress) ||
         !IsText(enteredDescription)
     ) {
         return;

@@ -10,7 +10,7 @@ function MapItem(props) {
 
   React.useEffect(
     ()=>{
-      console.log("MapItem "+props.image);
+      //console.log("MapItem "+props.image);
     },
     );
   const history = useHistory();
