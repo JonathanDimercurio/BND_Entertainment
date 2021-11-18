@@ -20,10 +20,13 @@ describe("AddMap", () => {
         fireEvent.input(getByRole("textbox", { name: /title/i }), {
             target: { value: "Test map" }
         });
-        fireEvent.input(getByRole("textbox", { name: /url/i }), {
+        fireEvent.input(getByRole("textbox", { name: /image/i }), {
             target: {
                 value: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1200px-Mr._Smiley_Face.svg.png"
             }
+        });
+        fireEvent.input(getByRole("textbox", { name: /address/i }), {
+            target: { value: "IDK what this field is for" }
         });
         fireEvent.input(getByRole("textbox", { name: /description/i }), {
             target: { value: "this is a test map" }
@@ -50,10 +53,13 @@ describe("AddMap", () => {
         fireEvent.input(getByRole("textbox", { name: /title/i }), {
             target: { value: "Test map" }
         });
-        fireEvent.input(getByRole("textbox", { name: /url/i }), {
+        fireEvent.input(getByRole("textbox", { name: /image/i }), {
             target: {
                 value: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1200px-Mr._Smiley_Face.svg.png"
             }
+        });
+        fireEvent.input(getByRole("textbox", { name: /address/i }), {
+            target: { value: "IDK what this field is for" }
         });
         fireEvent.input(getByRole("textbox", { name: /description/i }), {
             target: { value: "this is a test map" }

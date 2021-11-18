@@ -13,9 +13,13 @@ describe("NewMapForm", () => {
         expect(
             screen.getByRole("textbox", { name: /title/i })
         ).toBeInTheDocument();
-        expect(screen.getByText("Map URL")).toBeInTheDocument();
+        expect(screen.getByText("Address")).toBeInTheDocument();
         expect(
-            screen.getByRole("textbox", { name: /url/i })
+            screen.getByRole("textbox", { name: /address/i })
+        ).toBeInTheDocument();
+        expect(screen.getByText("Map Image")).toBeInTheDocument();
+        expect(
+            screen.getByRole("textbox", { name: /image/i })
         ).toBeInTheDocument();
         expect(screen.getByText("Description")).toBeInTheDocument();
         expect(
@@ -28,7 +32,7 @@ describe("NewMapForm", () => {
     it ("should validate form fields", async () => {
         const mockSave = jest.fn();
         render(<NewMapForm onAddMap={mockSave}/>);
-        fireEvent.input(screen.getByRole("textbox", { name: /url/i }), {
+        fireEvent.input(screen.getByRole("textbox", { name: /image/i }), {
             target: { value: 'this is not a url' }
         });
 
@@ -43,10 +47,13 @@ describe("NewMapForm", () => {
         fireEvent.input(screen.getByRole("textbox", { name: /title/i }), {
             target: { value: "Test map" }
         });
-        fireEvent.input(screen.getByRole("textbox", { name: /url/i }), {
+        fireEvent.input(screen.getByRole("textbox", { name: /image/i }), {
             target: {
                 value: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1200px-Mr._Smiley_Face.svg.png"
             }
+        });
+        fireEvent.input(screen.getByRole("textbox", { name: /address/i }), {
+            target: { value: "IDK what this field is for" }
         });
         fireEvent.input(screen.getByRole("textbox", { name: /description/i }), {
             target: { value: "this is a test map" }
@@ -55,7 +62,8 @@ describe("NewMapForm", () => {
         await waitFor(() =>
             expect(mockSave).toHaveBeenCalledWith({
                 title: "Test map",
-                address: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1200px-Mr._Smiley_Face.svg.png",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1200px-Mr._Smiley_Face.svg.png",
+                address: "IDK what this field is for",
                 description: "this is a test map"
             })
         );

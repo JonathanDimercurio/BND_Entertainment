@@ -20,15 +20,15 @@ describe("MapItem", () => {
         ).toBeInTheDocument();
         //text
         expect(screen.getByText("Test Map")).toBeInTheDocument();
+        expect(screen.getByText("Test Map Address")).toBeInTheDocument();
         expect(screen.getByText("this is a Test Map")).toBeInTheDocument();
         // buttons
-	/*
         expect(
             screen.getByRole("button", { name: /favorites/i })
-        ).toBeInTheDocument();*/
+        ).toBeInTheDocument();
 
         expect(
-            screen.getByRole("button", { name: /map/i })
+            screen.getByRole("button", { name: /view/i })
         ).toBeInTheDocument();
     });
     it("Should handle clicks", async () => {
@@ -40,7 +40,7 @@ describe("MapItem", () => {
             address="Test Map Address"
             description="this is a Test Map"
         />);
-        //fireEvent.submit(screen.getByRole("button", { name: /favorites/i }));
-        fireEvent.submit(screen.getByRole("button", { name: /map/i }));
+        fireEvent.submit(screen.getByRole("button", { name: /favorites/i }));
+        fireEvent.submit(screen.getByRole("button", { name: /view/i }));
     });
 });

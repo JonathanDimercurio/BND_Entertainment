@@ -1,31 +1,4 @@
 {
-  "database": {
-    "rules": "database.rules.json"
-  },
-  "emulators": {
-    "auth": {
-      "port": 5060
-    },
-    "firestore": {
-      "port": 5061
-    },
-    "database": {
-      "port": 5062
-    },
-    "hosting": {
-      "port": 5063
-    },
-    "storage": {
-      "port": 5064
-    },
-    "ui": {
-      "enabled": true,
-      "port": 5065
-    }
-  },
-  "storage": {
-    "rules": "storage.rules"
-  },
   "hosting": {
     "public": "build",
     "ignore": [
