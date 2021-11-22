@@ -1,42 +1,62 @@
-import { createUserWithEmailAndPassword,
-         signInWithEmailAndPassword } from 'firebase/auth';
-import { collection, addDoc } from "firebase/firestore";
+import React, { useContext, useState, useEffect } from "react"
+import { auth } from "../firebase"
 
+const AuthContext = React.createContext()
 
-import { auth, db } from '../firebase.js';
+export function useAuth() {
+  return useContext(AuthContext)
+}
 
-export const registerUser = async (email, password) => {
-  try {
-    await createUserWithEmailAndPassword(auth, email, password);
-    const user = await addDoc(collection(db, "users"), {
-      authProvider: "local",
-      email,
-    });
-    console.log("Document written with ID: ", user.name);
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
+export function AuthProvider({ children }) {
+  const [currentUser, setCurrentUser] = useState()
+  const [loading, setLoading] = useState(true)
+
+  function signup(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password)
   }
-};
 
-export const signInUser = async (email, password) => {
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-  } catch (err) {
-    alert(err.message);
+  function login(email, password) {
+    return auth.signInWithEmailAndPassword(auth, email, password)
   }
-};
 
-export const passwordReset = async (email) => {
-  try {
-    await auth.sendPasswordResetEmail(email);
-    alert("Password reset link sent!");
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
+  function logout() {
+    return signOut(auth)
   }
-};
 
-export const logout = () => {
-  auth.signOut();
-};
+  function resetPassword(email) {
+    return sendPasswordResetEmail(auth, email)
+  }
+
+  function updateEmail(email) {
+    return updateEmail(currentUser, email)
+  }
+
+  function updatePassword(password) {
+    return updatePassword(currentUser, password)
+  }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      setCurrentUser(user)
+      setLoading(false)
+    })
+
+    return unsubscribe
+  }, [])
+
+  const value = {
+    currentUser,
+    login,
+    signup,
+    logout,
+    resetPassword,
+    updateEmail,
+    updatePassword
+  }
+
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  )
+}
