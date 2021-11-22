@@ -24,7 +24,7 @@ function NewTokenForm(props) {
     props.onAddToken(TokenData);
   }
 
-  const history = useHistory();
+  const history = useNavigate();
 
   return (
     <Card>

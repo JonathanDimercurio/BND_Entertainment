@@ -13,7 +13,7 @@ function MapItem(props) {
       console.log("MapItem "+props.image);
     },
     );
-  const history = useHistory();
+  const history = useNavigate();
   return (
     <li className={classes.item}>
       <Card>

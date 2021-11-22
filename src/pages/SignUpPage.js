@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "fir
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase";
 
-export default function Signup() {
+export default function SignUpPage() {
     const auth = getAuth();
     const emailInputRef = useRef();
     const passwordInputRef = useRef();

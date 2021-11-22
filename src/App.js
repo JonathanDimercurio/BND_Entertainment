@@ -1,11 +1,14 @@
 import React from "react"
+import RequireAuth from './util/RequireAuth'
+
 import { Container } from "react-bootstrap"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { AuthProvider } from "../contexts/AuthContext"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+
+import { AuthProvider } from "./auth_context/AuthContext"
 
 // Page imports
-import Signup from "./pages/SignupPage"
-import Dashboard from "./pagesLandingPage"
+import Signup from "./pages/SignUpPage"
+import LandingPage from "./pages/LandingPage"
 import Login from "./pages/LoginPage"
 import ForgotPassword from "./pages/ForgotPasswordPage"
 import UpdateProfile from "./pages/UpdateProfilePage"
@@ -18,9 +21,14 @@ function App() {
         <Router>
           <AuthProvider>
             <Routes>
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route
+                path="/maps-archive"
+                element={
+                 <RequireAuth>
+                  <LandingPage />
+                 </RequireAuth>
+                }
+             />
             </Routes>
           </AuthProvider>
         </Router>

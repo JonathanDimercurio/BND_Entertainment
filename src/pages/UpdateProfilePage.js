@@ -3,7 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../auth_context/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 
-export default function UpdateProfile() {
+export default function UpdateProfilePage() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()

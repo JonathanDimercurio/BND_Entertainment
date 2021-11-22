@@ -3,7 +3,7 @@
     import { useAuth } from "../auth_context/AuthContext"
     import { Link, useNavigate } from "react-router-dom"
 
-    export default function Dashboard() {
+    export default function LandingPage() {
       const [error, setError] = useState("")
       const { currentUser, logout } = useAuth()
       const history = useNavigate()
