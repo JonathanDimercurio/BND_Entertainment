@@ -1,12 +1,11 @@
     import React, { useState } from "react"
     import { Card, Button, Alert } from "react-bootstrap"
     import { useAuth } from "../util/AuthContext"
-    import { Link, useNavigate } from "react-router-dom"
+    import { Link } from "react-router-dom"
 
     export default function LandingPage() {
       const [error, setError] = useState("")
       const { currentUser, logout } = useAuth()
-      const history = useNavigate()
 
       async function handleLogout() {
         setError("")
