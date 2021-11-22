@@ -1,9 +1,13 @@
 /*
  *  Author: Jonothan, Chris
+ 
+    TODO: rethink this design, limit maps per page OR load thumbs instead of entire maps
+        NOTE: This page is designed to display ALL uploaded maps
+        query's that large might have to be re-thought at some point ~!
  */
 import { useState, useEffect } from 'react';
 
-import MapList from './MapList';
+import MapList from '../component/maps/MapList';
 
 function MapsPage() {
     /*
@@ -20,8 +24,10 @@ function MapsPage() {
     const isError = status === 'error';
 
     useEffect(() => {
+        
         //show loading
         setStatus('waiting');
+        
         //query server
         fetch(
           'https://bnd-entertainment-default-rtdb.firebaseio.com/maps.json'
@@ -31,6 +37,7 @@ function MapsPage() {
         .then((data) => {
             //TODO: should this check response code?
             //NOTE: changing state in diff thens causes errors
+            
             if (data.message) {
                 setStatus('error');
                 setError(data.message);
@@ -49,6 +56,7 @@ function MapsPage() {
             setLoadedMaps(maps);
         });
     }, []);
+    
     //show waiting if state is waiting
     //show error if state is error
     return (

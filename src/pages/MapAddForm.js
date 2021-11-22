@@ -1,7 +1,6 @@
-import Card from '../../acts/ui/Card';
-import classes from './MapAddForm.module.css';
+import { Form, Button, Card } from "react-bootstrap"
 
-function MapAddForm() {
+function MapAddPage() {
   function submitHandler(event) {
     event.preventDefault();
 

@@ -4,11 +4,11 @@
  */
 
 import MapItem from './MapItem';
-import classes from './MapList.module.css';
 
 function MapList(props) {
   return (
-    <ul className={classes.list}>
+    // TODO: review 11
+    <ul className={props.id}>
       {props.maps.map((map) => (
         <MapItem
           key={map.id}

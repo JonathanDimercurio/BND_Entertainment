@@ -8,8 +8,8 @@ import {
     waitForElementToBeRemoved,
 } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import MapsPage from "./MapsPage";
-import { server, rest } from '../../mocks/server.js';
+import MapsPage from "../pages/MapsPage";
+import { server, rest } from '../mocks/server.js';
 
 const MAP = 'https://bnd-entertainment-default-rtdb.firebaseio.com/maps.json';
 

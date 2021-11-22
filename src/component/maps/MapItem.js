@@ -1,55 +1,24 @@
-import { Button } from 'react-bootstrap';
-import Card from '../ui/Card';
-import classes from './MapItem.module.css';
-import {useHistory} from 'react-router-dom'
-import reactDom from 'react-dom';
+import { Card } from 'react-bootstrap';
 import React from 'react';
 
 
+// TODO: probably need to remake this now...
 function MapItem(props) {
-
-  React.useEffect(
-    ()=>{
-      console.log("MapItem "+props.image);
-    },
-    );
-  const history = useNavigate();
   return (
-    <li className={classes.item}>
+    <div className={props.item}>
       <Card>
-        <div className={classes.image}>
+        <div className={props.image}>
           <img src={props.image} alt={props.title} />
         </div>
-        <div className={classes.content}>
-          <h3>{props.title}</h3>
-          <p>{props.description}</p>
-        </div>
-        {/*
-        <div className={classes.actions}>
-          <button>To Favorites</button>
-        </div>
-<<<<<<< HEAD
-        <div className={classes.actions}>
-          <Button onClick={() => history.push(
-              '/Game',
-            {MapName : props.image},
-
-            )} >
-            Click button to view product
-=======
-        */}
-        <div className={classes.actions}>
-          <Button onClick={() => history.push(
-              '/Game',
-            {MapName : props.image,},
-            )} >
-            Use Map
->>>>>>> main
-          </Button>
+            <div className={props.content}>
+              <h3>{props.title}</h3>
+              <p>{props.description}</p>
+            </div>
+          <div className={props.actions}>
+            <button>To Favorites</button>
         </div>
       </Card>
-    </li>
+    </div>
   );
 }
-
 export default MapItem;
