@@ -10,35 +10,33 @@ import { AuthProvider } from "./util/AuthContext";
 import SignUpPage from "./pages/SignUpPage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
-import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+// TODO: add passwordreset page
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import MapsPage from "./pages/MapsPage";
 
 function App() {
   return (
+
     <Container className="d-flex align-items-center justify-content-center"
           style={{ minHeight: "100vh" }} >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
           <AuthProvider>
             <Routes>
+          
           <Route path="/login" element={<LoginPage />} />
+          
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/"
-                element={
-                    <RequireAuth>
-                        <LandingPage />
-                    </RequireAuth>
-                        } />
+              
           <Route path="/" element={ <RequireAuth>
                 <LandingPage /> </RequireAuth>} />
-          <Route path="/profile" element={ <RequireAuth>
+              
+          <Route path="/forgot-password" element={ <RequireAuth>
                 <UpdateProfilePage /> </RequireAuth>} />
+              
           <Route path="/maps" element={ <RequireAuth>
                 <MapsPage /> </RequireAuth>} />
-              
 
-          
             </Routes>
           </AuthProvider>
         </Router>

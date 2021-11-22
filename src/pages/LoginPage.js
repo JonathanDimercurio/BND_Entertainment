@@ -6,10 +6,10 @@ import { Link, useNavigate } from "react-router-dom"
 export default function LoginPage() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { login } = useAuth()
+  const { login, currentUser } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const history = useNavigate()
+  const nav = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -18,12 +18,14 @@ export default function LoginPage() {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
-    } catch {
-      setError("Failed to log in")
-    }
+        setLoading(false)
 
-    setLoading(false)
+    } catch {
+        
+    }
+      if(!loading) {
+          return <nav to="/profile" />
+      }
   }
 
   return (
