@@ -1,7 +1,5 @@
+import 
 import { useRef } from 'react';
-
-import Card from '../ui/Card';
-import classes from './NewMapForm.module.css';
 import { IsText, IsURL } from '../../util/Validation';
 
 function NewMapForm(props) {
@@ -39,23 +37,14 @@ function NewMapForm(props) {
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor='title'>Map Title</label>
-          <input type='text' required id='title' ref={titleInputRef} />
+            <input type='text' required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='image'>Map URL</label>
-          <input type='url' required id='image' ref={imageInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor='description'>Description</label>
-          <textarea
-            id='description'
-            required
-            rows='5'
-            ref={descriptionInputRef}
-          ></textarea>
+            <label htmlFor='image'>Map URL</label>
+            <input type='url' required id='image' ref={imageInputRef} />
         </div>
         <div className={classes.actions}>
-          <button>Add Map</button>
+            <button>Add Map</button>
         </div>
       </form>
     </Card>
