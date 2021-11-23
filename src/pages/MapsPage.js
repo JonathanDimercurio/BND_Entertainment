@@ -3,7 +3,7 @@
  */
 import { useState, useEffect } from 'react';
 
-import MapList from '../component/maps/MapList';
+import MapItemList from '../component/map/MapItemList';
 
 function MapsPage() {
     const [isLoading, setIsLoading] = useState(true);

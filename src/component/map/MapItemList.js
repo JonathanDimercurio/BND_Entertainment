@@ -5,7 +5,7 @@
 
 import MapItem from './MapItem';
 
-function MapList(props) {
+function MapItemList(props) {
   return (
     // TODO: review 11
     <ul className={props.id}>
@@ -22,4 +22,4 @@ function MapList(props) {
   );
 }
 
-export default MapList;
+export default MapItemList;

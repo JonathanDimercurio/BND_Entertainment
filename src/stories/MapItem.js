@@ -1,22 +1,41 @@
 import React from 'react';
-+ import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export default function MapItem({ task: { id, title, state }, onArchiveTask, onPinTask }) {
-  // ...
+export default function MapItem({ mapitem: { id, title, state }, onArchiveMapItem, onPinMapItem }) {
+    
+  return (
+    <div className={`list-item ${state}`}>
+      <label className="checkbox">
+        <input
+          type="checkbox"
+          defaultChecked={state === 'MAP_ARCHIVED'}
+          disabled={true}
+          name="checked"
+        />
+        <span className="checkbox-custom" onClick={() => onArchiveMapItem(id)} />
+      </label>
+      <div className="title">
+        <input type="text" value={title} readOnly={true} placeholder="Input title" />
+      </div>
+
+      <div className="actions" onClick={event => event.stopPropagation()}>
+        {state !== 'MAP_ARCHIVED' && (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a onClick={() => onPinMapItem(id)}>
+            <span className={`icon-star`} />
+          </a>
+        )}
+      </div>
+    </div>
+  );
 }
 
-+ MapItem.propTypes = {
-+  /** Composition of the task */
-+  mapitem: PropTypes.shape({
-+    /** Id of the task */
-+    id: PropTypes.string.isRequired,
-+    /** Title of the task */
-+    title: PropTypes.string.isRequired,
-+    /** Current state of the task */
-+    state: PropTypes.string.isRequired,
-+  }),
-+  /** Event to change the task to archived */
-+  onArchiveTask: PropTypes.func,
-+  /** Event to change the task to pinned */
-+  onPinTask: PropTypes.func,
-+ };
+MapItem.propTypes = {
+    mapitem: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        state: PropTypes.string.isRequired,
+    }),
+    onArchiveMapItem: PropTypes.func,
+    onPinMapItem: PropTypes.func,
+};
