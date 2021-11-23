@@ -1,16 +1,14 @@
 import React from "react";
 import RequireAuth from './util/RequireAuth';
-
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import { AuthProvider } from "./util/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 // Page imports
 import SignUpPage from "./pages/SignUpPage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
-// TODO: add passwordreset page
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import MapsPage from "./pages/MapsPage";
 
@@ -23,16 +21,13 @@ function App() {
         <Router>
           <AuthProvider>
             <Routes>
-          
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/login" element={<LoginPage />} />
           
           <Route path="/signup" element={<SignUpPage />} />
               
           <Route path="/" element={ <RequireAuth>
                 <LandingPage /> </RequireAuth>} />
-              
-          <Route path="/forgot-password" element={ <RequireAuth>
-                <UpdateProfilePage /> </RequireAuth>} />
               
           <Route path="/maps" element={ <RequireAuth>
                 <MapsPage /> </RequireAuth>} />

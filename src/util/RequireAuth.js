@@ -1,4 +1,4 @@
-import { useAuth } from "../util/AuthContext"
+import { useAuth } from "../context/AuthContext"
 import { Navigate } from "react-router-dom";
 
 export default function RequireAuth({ children }: { children: JSX.Element }) {

@@ -1,6 +1,6 @@
     import React, { useState } from "react"
     import { Card, Button, Alert } from "react-bootstrap"
-    import { useAuth } from "../util/AuthContext"
+    import { useAuth } from "../context/AuthContext"
     import { Link } from "react-router-dom"
 
     export default function LandingPage() {

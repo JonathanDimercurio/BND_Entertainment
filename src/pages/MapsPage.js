@@ -10,10 +10,8 @@ function MapsPage() {
     const [loadedMaps, setLoadedMaps] = useState([]);
     const [status, setStatus] = useState('idle');
     const [error, setError] = useState("");
-    const [loadedMaps, setLoadedMaps] = useState([]);
 
-
-    // useEffect might be useful here
+    
 
     return (
         <div>

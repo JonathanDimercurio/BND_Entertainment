@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../util/AuthContext"
+import { useAuth } from "../context/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function LoginPage() {
@@ -24,7 +24,7 @@ export default function LoginPage() {
         
     }
       if(!loading) {
-          return <nav to="/profile" />
+          return <nav to="/" />
       }
   }
 
