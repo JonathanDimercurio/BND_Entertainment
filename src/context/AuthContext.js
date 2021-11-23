@@ -14,8 +14,7 @@ export function useAuth() {
     return useContext(AuthContext)
 }
 
-// All auth logic contained within. AuthContext provides
-// userState to all children.
+
 
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()

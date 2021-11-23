@@ -11,11 +11,11 @@ function MapsPage() {
     const [status, setStatus] = useState('idle');
     const [error, setError] = useState("");
 
-    
+
 
     return (
         <div>
-            
+
         </div>
     );
 }

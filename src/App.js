@@ -22,15 +22,17 @@ function App() {
         <Router>
           <AuthProvider>
             <Routes>
+          <Route exact path="/" element={ <RequireAuth>
+                <LandingPage /> </RequireAuth>} />
+          
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/login" element={<LoginPage />} />
           
           <Route path="/signup" element={<SignUpPage />} />
               
-          <Route path="/" element={ <RequireAuth>
-                <LandingPage /> </RequireAuth>} />
+
               
-          <Route path="/maps" element={ <RequireAuth>
+          <Route path="/allmaps" element={ <RequireAuth>
                 <MapsPage /> </RequireAuth>} />
 
             </Routes>

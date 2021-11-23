@@ -6,12 +6,16 @@ import PropTypes from 'prop-types';
 
 import MapItem from './MapItem';
 
-export default function MapItemList({ loading, mapitemlist, onPinMapItem, onArchiveMapItem }) {
+export default function MapItemList({
+                        loading, mapitemlist,
+                        onPinMapItem, onArchiveMapItem }) {
   const events = {
     onPinMapItem,
     onArchiveMapItem,
   };
 
+  console.log(mapitemlist)
+                          
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />
@@ -20,6 +24,7 @@ export default function MapItemList({ loading, mapitemlist, onPinMapItem, onArch
       </span>
     </div>
   );
+                          
   if (loading) {
     return (
       <div className="list-items">
@@ -32,13 +37,15 @@ export default function MapItemList({ loading, mapitemlist, onPinMapItem, onArch
       </div>
     );
   }
-  if (mapitemlist.length === 0) {
+                          
+                          
+  if (mapitemlist.length === 0 ) {
     return (
       <div className="list-items">
         <div className="wrapper-message">
           <span className="icon-check" />
-          <div className="title-message">You have no mapitemlist</div>
-          <div className="subtitle-message">Sit back and relax</div>
+          <div className="title-message">You have no map list</div>
+          <div className="subtitle-message">Go find some DM!</div>
         </div>
       </div>
     );
@@ -59,8 +66,8 @@ export default function MapItemList({ loading, mapitemlist, onPinMapItem, onArch
 MapItemList.propTypes = {
     loading: PropTypes.bool,
     mapitemlist: PropTypes.arrayOf(MapItem.propTypes.mapitem).isRequired,
-    onPinTask: PropTypes.func,
-    onArchiveTask: PropTypes.func,
+    onPinMapItem: PropTypes.func,
+    onArchiveMapItem: PropTypes.func,
 };
 MapItemList.defaultProps = {
     loading: false,
