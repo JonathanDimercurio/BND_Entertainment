@@ -1,29 +1,28 @@
-import React, { useRef, useState, useEffect } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../context/AuthContext"
-import { Link, useNavigate, useLocation } from "react-router-dom"
+import React, { useRef, useState, useEffect } from "react";
+import { Form, Button, Card, Alert } from "react-bootstrap";
+import { useAuth } from "../context/AuthContext";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function LoginPage() {
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    let location = useLocation();
-    let navigate = useNavigate();
-    let from = location.state?.from?.pathname || "/";
-    let { login } = useAuth()
-    const [error, setError] = useState("")
-    const [loading, setLoading] = useState(false)
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  let location = useLocation();
+  let navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
+  let { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-
-async function handleSubmit(e) {
-    e.preventDefault()
+  async function handleSubmit(e) {
+    e.preventDefault();
 
     try {
-        setError("")
-        setLoading(true)
-        await login(emailRef.current.value, passwordRef.current.value)
-            navigate(from, { replace: true });
-    } catch { }
-}
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      navigate(from, { replace: true });
+    } catch {}
+  }
 
   return (
     <>
@@ -53,5 +52,5 @@ async function handleSubmit(e) {
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
     </>
-  )
+  );
 }

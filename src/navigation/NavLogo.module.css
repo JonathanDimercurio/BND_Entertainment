@@ -1,7 +1,5 @@
-# NavLogo.module.css
-
-.logo {
-    width: 5rem;
-    height: 5rem;
-    background-color: red;
+# NavLogo.module.css .logo {
+  width: 5rem;
+  height: 5rem;
+  background-color: red;
 }

@@ -1,21 +1,24 @@
 /*  Author: JD Date: Nov. 23, 2021
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import MapItem from './MapItem';
+import MapItem from "./MapItem";
 
 export default function MapItemList({
-                        loading, mapitemlist,
-                        onPinMapItem, onArchiveMapItem }) {
+  loading,
+  mapitemlist,
+  onPinMapItem,
+  onArchiveMapItem,
+}) {
   const events = {
     onPinMapItem,
     onArchiveMapItem,
   };
 
-  console.log(mapitemlist)
-                          
+  console.log(mapitemlist);
+
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />
@@ -24,7 +27,7 @@ export default function MapItemList({
       </span>
     </div>
   );
-                          
+
   if (loading) {
     return (
       <div className="list-items">
@@ -37,9 +40,8 @@ export default function MapItemList({
       </div>
     );
   }
-                          
-                          
-  if (mapitemlist.length === 0 ) {
+
+  if (mapitemlist.length === 0) {
     return (
       <div className="list-items">
         <div className="wrapper-message">
@@ -51,12 +53,12 @@ export default function MapItemList({
     );
   }
   const mapitemlistInOrder = [
-    ...mapitemlist.filter(t => t.state === 'MAP_PINNED'),
-    ...mapitemlist.filter(t => t.state !== 'MAP_PINNED'),
+    ...mapitemlist.filter((t) => t.state === "MAP_PINNED"),
+    ...mapitemlist.filter((t) => t.state !== "MAP_PINNED"),
   ];
   return (
     <div className="list-items">
-      {mapitemlistInOrder.map(mapitem => (
+      {mapitemlistInOrder.map((mapitem) => (
         <MapItem key={mapitem.id} mapitem={mapitem} {...events} />
       ))}
     </div>
@@ -64,11 +66,11 @@ export default function MapItemList({
 }
 
 MapItemList.propTypes = {
-    loading: PropTypes.bool,
-    mapitemlist: PropTypes.arrayOf(MapItem.propTypes.mapitem).isRequired,
-    onPinMapItem: PropTypes.func,
-    onArchiveMapItem: PropTypes.func,
+  loading: PropTypes.bool,
+  mapitemlist: PropTypes.arrayOf(MapItem.propTypes.mapitem).isRequired,
+  onPinMapItem: PropTypes.func,
+  onArchiveMapItem: PropTypes.func,
 };
 MapItemList.defaultProps = {
-    loading: false,
-}
+  loading: false,
+};

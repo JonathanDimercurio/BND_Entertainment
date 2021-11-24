@@ -1,9 +1,9 @@
 /*  Author: Jonathan Dimercurio     Date: Oct 5, 2021
- *  Description: 
+ *  Description:
  *
  */
 
-import MapItem from './MapItem';
+import MapItem from "./MapItem";
 
 function MapItemList(props) {
   return (

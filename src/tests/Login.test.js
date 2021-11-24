@@ -31,7 +31,7 @@
 //            screen.getByRole('link', { name: /sign/i })
 //        ).toBeInTheDocument();
 //    });
-    /*
+/*
     it ("should validate form fields", async () => {
         const mockSave = jest.fn();
         render(<NewMapForm onAddMap={mockSave}/>);
@@ -45,7 +45,7 @@
         expect(mockSave).not.toBeCalled();
     });
     */
-    /*
+/*
     it("should submit correct data", async () => {
         const mockSave = jest.fn();
         render(<NewMapForm onAddMap={mockSave}/>);

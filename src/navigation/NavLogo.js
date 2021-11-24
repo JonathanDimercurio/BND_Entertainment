@@ -1,7 +1,3 @@
-
 export function NavLogo() {
-    return (
-            <div classList="logo">
-            </div>
-        )
+  return <div classList="logo"></div>;
 }

@@ -1,1 +1,1 @@
-export * from './WindowSensor';
+export * from "./WindowSensor";
