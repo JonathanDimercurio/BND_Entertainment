@@ -45,10 +45,6 @@ export function DBProvider({ children }) {
                 { children }
             </DBContext.Provider>
     );
-    
-    function addMap() {
-        
-    }
 }
 
 

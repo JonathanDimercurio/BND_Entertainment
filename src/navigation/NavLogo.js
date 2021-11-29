@@ -1,12 +1,11 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState } from 'react';
 import styles from './NavLogo.module.css';
 import { Link } from "react-router-dom";
-import logo from './assets/bnd_logo.png';
 import pIcon from './assets/profileIcon.png'
 import mIcon from './assets/mapsIcon.png';
 import homeIcon from './assets/homeIcon.png';
 import npcIcon from './assets/npcIcon.png';
-
+import closeNavIcon from './assets/closeNavIcon.png';
 
 export default function NavLogo() {
     const [style, setStyle] = useState("false");
@@ -23,24 +22,30 @@ export default function NavLogo() {
            <ul>
             <li>
                 <Link to="/">
-                    <img id="homeIcon" src={homeIcon} />
+                    <img id="homeIcon" alt="Home" src={homeIcon} />
                 </Link>
             </li>
             <li>
                 <Link to="/profile">
-                    <img id="profileIcon" src={pIcon} />
+                    <img id="profileIcon" alt="Profile" src={pIcon} />
                 </Link>
             </li>
             <li>
-                <Link to="/allmaps">
-                    <img id="mapsIcon" src={mIcon} />
+                <Link to="/">
+                    <img id="mapsIcon" alt="Maps" src={mIcon} />
                 </Link>
             </li>
             <li>
-                <Link to="/allmaps">
-                    <img id="mapsIcon" src={npcIcon} />
+                <Link to="/">
+                    <img id="npcIcon" alt="Icons" src={npcIcon} />
                 </Link>
             </li>
+            <li>
+                <Link to="/">
+                    <img id="npcIcon" alt="close" src={closeNavIcon} />
+                </Link>
+            </li>
+
 
            </ul>
           </div>

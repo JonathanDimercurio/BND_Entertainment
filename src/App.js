@@ -60,15 +60,6 @@ function App() {
                 }
               />
 
-              <Route
-                path="/allmaps"
-                element={
-                  <RequireAuth>
-                    {" "}
-                    <MapsPage />{" "}
-                  </RequireAuth>
-                }
-              />
             </Routes>
             </DBProvider>
           </AuthProvider>
