@@ -3,6 +3,7 @@ import RequireAuth from "./util/RequireAuth";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import { DBProvider } from "./context/DatabaseContext";
 import NavLogo from "./navigation/NavLogo.js";
 
 
@@ -30,6 +31,7 @@ function App() {
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
           <AuthProvider>
+          <DBProvider>
           <NavLogo />
             <Routes>
               <Route path="/login" element={<LoginPage />} />
@@ -68,6 +70,7 @@ function App() {
                 }
               />
             </Routes>
+            </DBProvider>
           </AuthProvider>
         </Router>
       </div>

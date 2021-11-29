@@ -59,6 +59,7 @@ export function AuthProvider({ children }) {
     resetPassword,
     updateEmail,
     updatePassword,
+    loading,
   };
 
   return (
