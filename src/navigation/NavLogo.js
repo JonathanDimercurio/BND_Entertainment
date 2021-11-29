@@ -31,18 +31,18 @@ export default function NavLogo() {
                 </Link>
             </li>
             <li>
-                <Link to="/">
+                <Link to="/addboard">
                     <img id="mapsIcon" alt="Maps" src={mIcon} />
                 </Link>
             </li>
             <li>
-                <Link to="/">
+                <Link to="/addtoken">
                     <img id="npcIcon" alt="Icons" src={npcIcon} />
                 </Link>
             </li>
             <li>
                 <Link to="/">
-                    <img id="npcIcon" alt="close" src={closeNavIcon} />
+                    <img id="closeIcon" alt="close" src={closeNavIcon} />
                 </Link>
             </li>
 

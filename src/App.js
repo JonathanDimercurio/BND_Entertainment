@@ -13,7 +13,8 @@ import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
-import MapsPage from "./pages/MapsPage";
+import AddBoardForm from "./component/map/AddBoardForm";
+import AddTokenForm from "./component/token/AddTokenForm";
 
 // Storebook
 //import { Provider } from 'react-redux';
@@ -38,28 +39,17 @@ function App() {
               <Route path="/signup" element={<SignUpPage />} />
               <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-              <Route
-                exact
-                path="/"
-                element={
-                  <RequireAuth>
-                    {" "}
-                    <LandingPage />{" "}
-                  </RequireAuth>
-                }
-              />
 
-              <Route
-                exact
-                path="/profile"
-                element={
-                  <RequireAuth>
-                    {" "}
-                    <UpdateProfilePage />{" "}
-                  </RequireAuth>
-                }
-              />
+              <Route exact path="/" element={
+                <RequireAuth>{" "}<LandingPage />{" "}</RequireAuth>} />
+              <Route exact path="/profile" element={
+                <RequireAuth>{" "}<UpdateProfilePage />{" "}</RequireAuth>} />
+              <Route exact path="/addboard" element={
+                <RequireAuth>{" "}<AddBoardForm />{" "}</RequireAuth>} />
+              <Route exact path="/addtoken" element={
+                <RequireAuth>{" "}<AddTokenForm />{" "}</RequireAuth>} />
 
+                  
             </Routes>
             </DBProvider>
           </AuthProvider>

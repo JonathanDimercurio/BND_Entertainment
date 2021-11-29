@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { useDB } from "../context/DatabaseContext";
@@ -37,9 +37,6 @@ export default function Signup() {
 
   return (
     <>
-      <Card>
-        <Card.Body></Card.Body>
-      </Card>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
