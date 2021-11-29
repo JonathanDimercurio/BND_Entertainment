@@ -6,7 +6,10 @@ import PropTypes from "prop-types";
 
 import MapItem from "./MapItem";
 
-export default function MapItemList({
+import { connect } from 'react-redux';
+import { archiveMapItem, pinMapItem } from '../lib/ReduxStore1';
+
+export function MapItemList({
   loading,
   mapitemlist,
   onPinMapItem,
@@ -53,8 +56,8 @@ export default function MapItemList({
     );
   }
   const mapitemlistInOrder = [
-    ...mapitemlist.filter((t) => t.state === "MAP_PINNED"),
-    ...mapitemlist.filter((t) => t.state !== "MAP_PINNED"),
+    ...mapitemlist.filter((t) => t.state === "MAPITEM_PINNED"),
+    ...mapitemlist.filter((t) => t.state !== "MAPITEM_PINNED"),
   ];
   return (
     <div className="list-items">
@@ -68,9 +71,20 @@ export default function MapItemList({
 MapItemList.propTypes = {
   loading: PropTypes.bool,
   mapitemlist: PropTypes.arrayOf(MapItem.propTypes.mapitem).isRequired,
-  onPinMapItem: PropTypes.func,
-  onArchiveMapItem: PropTypes.func,
+  onPinMapItem: PropTypes.func.isRequired,
+  onArchiveMapItem: PropTypes.func.isRequired,
 };
+
 MapItemList.defaultProps = {
   loading: false,
 };
+
+export default connect(
+  ({ mapitemlist }) => ({
+    mapitemlist: mapitemlist.filter(m => m.state === 'MAPITEM_INBOX' || m.state === 'MAPITEM_PINNED'),
+  }),
+  dispatch => ({
+    onArchiveMapItem: id => dispatch(archiveMapItem(id)),
+    onPinMapItem: id => dispatch(pinMapItem(id)),
+  })
+)(MapItemList);

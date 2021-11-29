@@ -12,7 +12,7 @@ export default function MapItem({
       <label className="checkbox">
         <input
           type="checkbox"
-          defaultChecked={state === "MAP_ARCHIVED"}
+          defaultChecked={state === "MAPITEM_ARCHIVED"}
           disabled={true}
           name="checked"
         />
@@ -31,7 +31,7 @@ export default function MapItem({
       </div>
 
       <div className="actions" onClick={(event) => event.stopPropagation()}>
-        {state !== "MAP_ARCHIVED" && (
+        {state !== "MAPITEM_ARCHIVED" && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a onClick={() => onPinMapItem(id)}>
             <span className={`icon-star`} />

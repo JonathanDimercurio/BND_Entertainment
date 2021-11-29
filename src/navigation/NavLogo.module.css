@@ -1,5 +1,67 @@
-# NavLogo.module.css .logo {
-  width: 5rem;
-  height: 5rem;
-  background-color: red;
+Button {
+    background-color: lightgrey;
+}
+
+.slidenavCLOSE {
+    opacity:.2;
+    display: block;
+    height: 10%;
+    width: 5%;
+    position: fixed;
+    z-index: 1;
+    top: -2px;
+    left: -140px;
+    padding-left: 150px;
+    background-color: grey;
+    overflow-x: hidden;
+    transition: 0.2s;
+    border-radius: 15px;
+    border: solid black 2px;
+}
+
+.slidenavCLOSE:hover {
+    opacity:0.8;
+}
+
+.slidenavCLOSE img {
+    transition-delay: .2s;
+    display:none;
+}
+
+
+.slidenavOPEN {
+    display: block;
+    height: clamp(70px, 100%, 90px);
+    width: 475px;
+    top: -1rem;
+    left: -50px;
+    position: fixed;
+    z-index: 1;
+    background-color: lightgrey;
+    border: solid black 2px;
+    overflow-x: hidden;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+ul {
+    margin-right: clamp(50px, )
+}
+
+li {
+    list-style-type: none;
+}
+.slidenavOPEN img {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: left;
+    height: 100px;
+    width: 100px;
+    background:cover;
+}
+.slidenavOPEN img:hover {
+    background:cover;
+    background-color:rgb(250,250,250,.7);
+    border-radius:25%;
 }
