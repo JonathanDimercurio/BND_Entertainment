@@ -9,12 +9,8 @@ function NewBoardPage() {
     
     function addBoardHandler(newBoard) {
         setLoading(true);
-        
-        console.log(newBoard);
-            
         const board = addBoard(newBoard)
         .then(() => {
-            console.log(newBoard + ' uploaded');
             setLoading(false);
         }, []);
     }

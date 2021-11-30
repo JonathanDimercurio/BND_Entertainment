@@ -17,33 +17,45 @@ export default function NavLogo() {
     
     
   return (
+          
           <div id="bndSlideNav" className={style ?
               styles.slidenavCLOSE : styles.slidenavOPEN} onClick={navHandler} >
            <ul>
+            
+            <div>
             <li>
                 <Link to="/">
                     <img id="homeIcon" alt="Home" src={homeIcon} />
                 </Link>
             </li>
+            </div>
+            
+            <div>
             <li>
                 <Link to="/profile">
                     <img id="profileIcon" alt="Profile" src={pIcon} />
                 </Link>
             </li>
+            </div>
+            
             <li>
+            <div>
                 <Link to="/addboard">
                     <img id="mapsIcon" alt="Maps" src={mIcon} />
                 </Link>
+            </div>
             </li>
+            
+            <div>
             <li>
                 <Link to="/addtoken">
                     <img id="npcIcon" alt="Icons" src={npcIcon} />
                 </Link>
             </li>
+            </div>
+            
             <li>
-                <Link to="/">
                     <img id="closeIcon" alt="close" src={closeNavIcon} />
-                </Link>
             </li>
 
 

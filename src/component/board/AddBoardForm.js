@@ -18,8 +18,6 @@ function AddBoardForm(props) {
         imageURL: enteredImage,
         description: enteredDescription,
       };
-        console.log(boardData);
-        
       props.onAddBoard(boardData);
     }
 

@@ -5,19 +5,16 @@ Button {
 .slidenavCLOSE {
     opacity:.2;
     display: block;
-    height: 10%;
-    width: 5%;
+    height: 10vw;
+    width: 10vw;
     position: fixed;
     z-index: 1;
     top: -2px;
-    left: -140px;
-    padding-left: 150px;
-    background-color: grey;
+    left: 0px;
+    background-image: url('./assets/navBarIcon.png');
+    background-size: cover;
     overflow-x: hidden;
     transition: 0.2s;
-    border-top-right-radius: calc(0.25rem - 1px);
-    border-bottom-right-radius: calc(0.25rem - 1px);
-    border: solid black 1px;
 }
 
 .slidenavCLOSE:hover {
@@ -33,37 +30,43 @@ Button {
 .slidenavOPEN {
     display: block;
     height: clamp(70px, 100%, 90px);
-    width: 550px;
+    width: 430px;
     top: -1rem;
     left: -50px;
     position: fixed;
     z-index: 1;
     background-color: lightgrey;
-    border: solid black 1px;
     overflow-x: hidden;
     border-bottom-left-radius: calc(0.25rem - 1px);
     border-bottom-right-radius: calc(0.25rem - 1px);
     transition: 0.5s;
 }
 ul {
-    margin-left: 10px;
+    display: block;
+    margin-left: 20px;
+    padding-top: 15px
 }
 
 li {
+  
     list-style-type: none;
 }
-.slidenavOPEN img {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+.slidenavOPEN div {
     float: left;
-    height: 100px;
-    width: 100px;
-    background:cover;
+    border-radius: 100%;
+    height: 75px;
+    width: 75px;
 }
-.slidenavOPEN img:hover {
+
+.slidenavOPEN img {
+    height: 75px;
+    width: 75px;
+    overflow: visible;
     background:cover;
-    background-color:rgb(250,250,250,.7);
-    border-radius:25%;
+    background-position: center;
+}
+
+
+.slidenavOPEN div:hover {
+    background-color: rgb(60%, 70%, 95%, .9);
 }

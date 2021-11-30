@@ -14,13 +14,7 @@ import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import NewBoardPage from "./pages/NewBoardPage";
-import AddTokenForm from "./component/token/AddTokenForm";
-
-// Storebook
-//import { Provider } from 'react-redux';
-//import store from './lib/ReduxStore1';
-//import MapWallet from './stories/MapWallet';
-
+import AddTokenPage from "./pages/NewTokenPage";
 
 function App() {
   return (
@@ -47,7 +41,7 @@ function App() {
               <Route exact path="/addboard" element={
                 <RequireAuth>{" "}<NewBoardPage />{" "}</RequireAuth>} />
               <Route exact path="/addtoken" element={
-                <RequireAuth>{" "}<AddTokenForm />{" "}</RequireAuth>} />
+                <RequireAuth>{" "}<AddTokenPage />{" "}</RequireAuth>} />
 
                   
             </Routes>

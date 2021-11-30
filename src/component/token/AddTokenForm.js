@@ -8,26 +8,25 @@ function AddTokenForm(props) {
     const descriptionInputRef = useRef();
 
     function submitHandler(event) {
-//      event.preventDefault();
-//
-//      const enteredTitle = titleInputRef.current.value;
-//      const enteredImage = imageInputRef.current.value;
-//      const enteredDescription = descriptionInputRef.current.value;
-//
-//      const boardData = {
-//        title: enteredTitle,
-//        imageURL: enteredImage,
-//        description: enteredDescription,
-//      };
-//
-//      props.addBoardPage(boardData);
+      event.preventDefault();
+        
+      const enteredTitle = titleInputRef.current.value;
+      const enteredImage = imageURLInputRef.current.value;
+      const enteredDescription = descriptionInputRef.current.value;
+        
+      const tokenData = {
+        title: enteredTitle,
+        imageURL: enteredImage,
+        description: enteredDescription,
+      };
+      props.onAddToken(tokenData);
     }
 
   return (
           <>
             <Card>
               <Card.Body>
-                <h2 className="text-center mb-4">Add Token</h2>
+                <h2 className="text-center mb-4">Add New Token</h2>
                 <Form onSubmit={submitHandler}>
           
                   <Form.Group id="title">
@@ -46,7 +45,7 @@ function AddTokenForm(props) {
                   </Form.Group>
           
                   <Button className="w-100" type="submit">
-                    Add Board
+                    Add Token
                   </Button>
           
           

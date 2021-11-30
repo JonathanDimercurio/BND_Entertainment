@@ -19,11 +19,13 @@ export default function LandingPage() {
 
   return (
     <>
+      
+          
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">{"User logged"}</h2>
+          <h1 className="text-center mb-5">{"Current User:"}</h1>
           {error && <Alert variant="danger">{error}</Alert>}
-          <strong>Email:</strong> {currentUser.email}
+          <h5 className="text-center mb-5">{currentUser.email}</h5>
           <Link to="/profile" className="btn btn-primary w-100 mt-3">
             Update Profile
           </Link>

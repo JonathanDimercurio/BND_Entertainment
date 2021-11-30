@@ -29,14 +29,18 @@ export function DBProvider({ children }) {
     }
     
     function addBoard(newBoard) {
-        console.log(newBoard);
-        
         return addDoc(collection(db, "boards"), newBoard);
     }
+    
+    function addToken(newToken) {
+        return addDoc(collection(db, "tokens"), newToken);
+    }
+
 
     const value = {
         addUser,
-        addBoard
+        addBoard,
+        addToken
     };
     
     return (
