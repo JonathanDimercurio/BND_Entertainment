@@ -1,5 +1,4 @@
-import React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Form, Button, Card } from "react-bootstrap";
 
 function AddBoardForm(props) {
@@ -8,26 +7,27 @@ function AddBoardForm(props) {
     const descriptionInputRef = useRef();
 
     function submitHandler(event) {
-//      event.preventDefault();
-//
-//      const enteredTitle = titleInputRef.current.value;
-//      const enteredImage = imageInputRef.current.value;
-//      const enteredDescription = descriptionInputRef.current.value;
-//
-//      const boardData = {
-//        title: enteredTitle,
-//        imageURL: enteredImage,
-//        description: enteredDescription,
-//      };
-//
-//      props.addBoardPage(boardData);
+      event.preventDefault();
+        
+      const enteredTitle = titleInputRef.current.value;
+      const enteredImage = imageURLInputRef.current.value;
+      const enteredDescription = descriptionInputRef.current.value;
+        
+      const boardData = {
+        title: enteredTitle,
+        imageURL: enteredImage,
+        description: enteredDescription,
+      };
+        console.log(boardData);
+        
+      props.onAddBoard(boardData);
     }
 
   return (
           <>
             <Card>
               <Card.Body>
-                <h2 className="text-center mb-4">Add Board</h2>
+                <h4 className="text-center mb-4">Add New Board</h4>
                 <Form onSubmit={submitHandler}>
           
                   <Form.Group id="title">
@@ -43,6 +43,7 @@ function AddBoardForm(props) {
                   <Form.Group id="description">
                     <Form.Label>Description</Form.Label>
                     <Form.Control type="text" ref={descriptionInputRef} required />
+                    <Form.Label>{" "}</Form.Label>
                   </Form.Group>
           
                   <Button className="w-100" type="submit">

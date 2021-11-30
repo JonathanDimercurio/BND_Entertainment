@@ -12,9 +12,8 @@ export default function Signup() {
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
     const { addUser } = useDB();
-    const { signup, currentUser } = useAuth();
+    const { signup, currentUser, loading, setLoading } = useAuth();
     const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,6 +27,7 @@ export default function Signup() {
     const newUser = signup(emailRef.current.value, passwordRef.current.value)
     .then(() => {
         addUser(currentUser).then(() => {
+            setLoading(false);
             navigate(from, { replace: true });
         }, []);
     }, []);

@@ -13,7 +13,7 @@ import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
-import AddBoardForm from "./component/map/AddBoardForm";
+import NewBoardPage from "./pages/NewBoardPage";
 import AddTokenForm from "./component/token/AddTokenForm";
 
 // Storebook
@@ -45,7 +45,7 @@ function App() {
               <Route exact path="/profile" element={
                 <RequireAuth>{" "}<UpdateProfilePage />{" "}</RequireAuth>} />
               <Route exact path="/addboard" element={
-                <RequireAuth>{" "}<AddBoardForm />{" "}</RequireAuth>} />
+                <RequireAuth>{" "}<NewBoardPage />{" "}</RequireAuth>} />
               <Route exact path="/addtoken" element={
                 <RequireAuth>{" "}<AddTokenForm />{" "}</RequireAuth>} />
 

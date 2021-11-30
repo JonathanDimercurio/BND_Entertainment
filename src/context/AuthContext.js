@@ -60,6 +60,7 @@ export function AuthProvider({ children }) {
     updateEmail,
     updatePassword,
     loading,
+    setLoading
   };
 
   return (

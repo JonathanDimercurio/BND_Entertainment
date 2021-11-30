@@ -3,20 +3,12 @@
 // Depenedant: AuthProvider, User must be signed in *
 
 import React, { useContext } from "react";
-
-
-// import React, { useContext, useState, useEffect } from "react";
 import {   doc,
         addDoc,
         setDoc,
     collection } from "firebase/firestore";
-// import { getStorage, ref } from "firebase/storage";
-
 import { db } from '../firebase';
 import { useAuth } from './AuthContext';
-
-
-
     
 const DBContext = React.createContext();
 
@@ -36,8 +28,15 @@ export function DBProvider({ children }) {
         return setDoc(userRef, newUserData, { merge: true });
     }
     
+    function addBoard(newBoard) {
+        console.log(newBoard);
+        
+        return addDoc(collection(db, "boards"), newBoard);
+    }
+
     const value = {
-        addUser
+        addUser,
+        addBoard
     };
     
     return (
