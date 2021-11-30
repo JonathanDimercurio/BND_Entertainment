@@ -5,8 +5,8 @@ Button {
 .slidenavCLOSE {
     opacity:.2;
     display: block;
-    height: 10vw;
-    width: 10vw;
+    height: 6vw;
+    width: 6vw;
     position: fixed;
     z-index: 1;
     top: -2px;
@@ -14,7 +14,7 @@ Button {
     background-image: url('./assets/navBarIcon.png');
     background-size: cover;
     overflow-x: hidden;
-    transition: 0.2s;
+    transition: 0.4s;
 }
 
 .slidenavCLOSE:hover {
