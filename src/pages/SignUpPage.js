@@ -45,13 +45,13 @@ export default function Signup() {
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" className="mb-4" ref={emailRef} required />
+              <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
-            <Form.Group id="password" className="mb-4">
+            <Form.Group id="password">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Form.Group id="password-confirm" className="mb-4">
+            <Form.Group id="password-confirm">
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
