@@ -16,23 +16,23 @@ export default function Signup() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
       
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match");
     }
 
-    try {
-        setError("");
-        setLoading(true);
-        await signup(emailRef.current.value, passwordRef.current.value);
-        await addUser(currentUser);
-        navigate(from, { replace: true });
-    } catch {
-        
-    }
+    setError("");
+    setLoading(true);
+    const newUser = signup(emailRef.current.value, passwordRef.current.value)
+    .then(() => {
+        addUser(currentUser).then(() => {
+            navigate(from, { replace: true });
+        }, []);
+    }, []);
   }
+
     
 
   return (
