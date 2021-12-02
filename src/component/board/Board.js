@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
 import React, { useContext } from 'react';
-import FavoritesContext from '../../store/favorites-context';
+import FavoritesContext from '../../context/FavoritesContext';
 
 function Board(props) {
     const favoritesCtx = useContext(FavoritesContext);
@@ -11,11 +11,9 @@ function Board(props) {
           favoritesCtx.removeFavorite(props.id);
         } else {
           favoritesCtx.addFavorite({
-            id: props.id,
-            title: props.title,
-            description: props.description,
-            image: props.image,
-            address: props.address,
+          title: props.enteredTitle,
+          imageURL: props.enteredImage,
+          description: props.enteredDescription,
         });}
     }
 
@@ -23,7 +21,7 @@ function Board(props) {
        <li>
          <Card>
            <div>
-             <img src={props.image} alt={props.title} />
+             <img src={props.imageURL} alt={props.title} />
            </div>
            <div>
              <h3>{props.title}</h3>

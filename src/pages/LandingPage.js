@@ -19,22 +19,26 @@ export default function LandingPage() {
 
   return (
     <>
-      
-          
-      <Card>
+          <Card>
         <Card.Body>
           <h1 className="text-center mb-5">{"Current User:"}</h1>
           {error && <Alert variant="danger">{error}</Alert>}
           <h5 className="text-center mb-5">{currentUser.email}</h5>
           <Link to="/profile" className="btn btn-primary w-100 mt-3">
-            Update Profile
+            Character Creator
           </Link>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        <Button variant="link" onClick={handleLogout}>
+      <div >
+        <Button className="w-100 text-left mt-2" variant="link" onClick={handleLogout}>
           Log Out
         </Button>
+          
+          <Link to="/profile">
+          <Button className="w-100 text-right mt-2" variant="link" onClick={""}>
+            Update Profile
+          </Button>
+          </Link>
       </div>
     </>
   );

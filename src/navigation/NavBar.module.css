@@ -1,0 +1,77 @@
+Button {
+    background-color: lightgrey;
+}
+
+.slidenavCLOSE {
+    opacity:.2;
+    display: block;
+    height: 5vw;
+    width: 5vw;
+    position: fixed;
+    z-index: 1;
+    top: -2px;
+    left: 0px;
+    background-image: url('./assets/navBarIcon.png');
+    background-size: cover;
+    overflow-x: hidden;
+    transition: 0.4s;
+    
+    
+}
+
+.slidenavCLOSE:hover {
+    opacity:0.3;
+    
+}
+
+.slidenavCLOSE img {
+    transition-delay: .2s;
+    display:none;
+}
+
+
+.slidenavOPEN {
+    display: flex;
+    flex-wrap: nowrap;
+    display: block;
+    height: 400px;
+    width: 130px;
+    top: -1vh;
+    left: -50px;
+    position: fixed;
+    z-index: 1;
+    background-color: lightgrey;
+    background-color: rgb(230, 230, 230, .6);
+    overflow-x: hidden;
+    border-bottom-left-radius: calc(0.25rem - 1px);
+    border-bottom-right-radius: calc(0.25rem - 1px);
+    transition: 0.5s;
+}
+ul {
+    display: block;
+    margin-left: 20px;
+    padding-top: 15px
+}
+
+li {
+  
+    list-style-type: none;
+}
+.slidenavOPEN div {
+    border-radius: 100%;
+    height: clamp(75px, 1vh, 100px);
+    width: clamp(75px, 1vh, 100px);
+}
+
+.slidenavOPEN img {
+    height: clamp(75px, 1vh, 100px);
+    width: clamp(75px, 1vh, 100px);
+    overflow: visible;
+    background:cover;
+    background-position: center;
+}
+
+
+.slidenavOPEN div:hover {
+    background-color: rgb(60%, 70%, 95%, .9);
+}

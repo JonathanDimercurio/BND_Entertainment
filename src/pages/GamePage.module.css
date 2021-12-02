@@ -1,0 +1,13 @@
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    overflow: show;
+    border: solid black 1px;
+}
+
+    Draggable {
+  cursor: move;
+}

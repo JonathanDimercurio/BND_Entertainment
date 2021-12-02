@@ -22,7 +22,7 @@ function AddBoardForm(props) {
     }
 
   return (
-          <>
+          <> 
             <Card>
               <Card.Body>
                 <h4 className="text-center mb-4">Add New Board</h4>
