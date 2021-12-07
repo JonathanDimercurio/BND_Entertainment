@@ -5,12 +5,14 @@ import { useDB } from "../context/DatabaseContext";
 import { useAuth } from "../context/AuthContext";
 
 function NewTokenPage() {
-    const { addToken } = useDB();
+    const { addToken, getToken,  } = useDB();
     const { setLoading, currentUser } = useAuth();
+    
+
     
     function addTokenHandler(newToken) {
         setLoading(true);
-        const board = addToken(newToken)
+        const token = addToken(newToken)
         .then(() => {
             setLoading(false);
         }, []);
@@ -18,6 +20,8 @@ function NewTokenPage() {
     
 return (
     <section>
+        <h1>{getToken ? console.log(hit) : console.log('miss')}</h1>
+        <br />
         <h1 className="display-1 text-center">Game Tokens</h1>
         <h4 className="text-center"> {currentUser.email} </h4>
             <AddTokenForm onAddToken={addTokenHandler} />
