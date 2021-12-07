@@ -18,6 +18,8 @@ import NewBoardPage from "./pages/NewBoardPage";
 import AddTokenPage from "./pages/NewTokenPage";
 import AllBoardsPage from "./pages/AllBoardsPage";
 import GamePage from "./pages/GamePage";
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 // 🤪
 
 
@@ -32,8 +34,9 @@ function App() {
           
           <AuthProvider>
           <DBProvider>
-          <NavBar />
-          <Wallet />
+          <DndProvider backend={HTML5Backend}>
+            <NavBar />
+            <Wallet />
 
           
                 <Routes>
@@ -56,7 +59,7 @@ function App() {
                     <RequireAuth>{" "}<AllBoardsPage />{" "}</RequireAuth>} />
 
                 </Routes>
-                      
+                </DndProvider>
         </DBProvider>
         </AuthProvider>
                       

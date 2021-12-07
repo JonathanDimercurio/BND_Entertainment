@@ -19,6 +19,7 @@ function AddTokenForm(props) {
         imageURL: enteredImage,
         description: enteredDescription,
       };
+      console.log(tokenData)
       props.onAddToken(tokenData);
     }
 

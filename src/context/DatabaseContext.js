@@ -7,6 +7,7 @@ import {   doc,
         addDoc,
         setDoc,
         gertDocs,
+        useRef,
     collection } from "firebase/firestore";
 
 import { db, fbstorage } from '../firebase';
@@ -19,10 +20,10 @@ export function useDB() {
 }
 
 export function DBProvider({ children }) {
-//    const allInputs = {imgUrl: ''}
-//    const [imageAsFile, setImageAsFile] = useState('')
-//    const [imageAsUrl, setImageAsUrl] = useState(allImputs)
-    
+    const boardsColRef = collection(db, 'boards')
+    const userDocRef = doc(db, 'users/userRef');
+
+
     const { currentUser } = useAuth();
     
 
@@ -48,31 +49,13 @@ export function DBProvider({ children }) {
     
     // address this now TODO: NOW!
     function getAllTokens () {
-        return getDocs(collection(db, "tokens"));
+        
     }
     
     function addToken(newToken) {
-        const userRef = doc(db, 'users/' + currentUser.uid.slice(1,10));
-        return setDoc(userRef, newToken, { merge: true });
+        return setDoc(collection(db, "tokens"), newToken, {merge: true} );
     }
 
-//      Image upload to firebase storage logic ~~~
-//
-//    function convertImageLocalOrRemoteImageToBinary() {
-//        console.log(imageAsFile);
-//
-//        const handleImageAsFile = (e) => {
-//            const image = e.target.files[0]
-//              setImageAsFile(imageFile => (image)) };
-//
-//        const storageRef = ref(fbstorage, '')
-//
-//        const handleFireBaseUpload = e => {
-//            e.preventDefault()
-//            console.log('start of upload')
-//            }
-//    }
-    
     function getAllBoards( ) {}
 
     const value = {
@@ -80,7 +63,11 @@ export function DBProvider({ children }) {
         addUser,
         addBoard,
         addToken,
-        getAllBoards
+        getAllBoards,
+        boardsColRef,
+        userDocRef
+        
+
     };
     
     return (

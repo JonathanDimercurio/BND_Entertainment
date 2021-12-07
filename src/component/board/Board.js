@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
 import React, { useContext } from 'react';
+import classes from './Board.module.css';
 import FavoritesContext from '../../context/FavoritesContext';
 
 function Board(props) {
@@ -11,30 +12,31 @@ function Board(props) {
           favoritesCtx.removeFavorite(props.id);
         } else {
           favoritesCtx.addFavorite({
-          title: props.enteredTitle,
-          imageURL: props.enteredImage,
-          description: props.enteredDescription,
+            id: props.id,
+            title: props.enteredTitle,
+            imageURL: props.enteredImage,
+            description: props.enteredDescription,
         });}
     }
 
     return (
-       <li>
-         <Card>
-           <div>
-             <img src={props.imageURL} alt={props.title} />
-           </div>
-           <div>
-             <h3>{props.title}</h3>
-             <address>{props.address}</address>
-             <p>{props.description}</p>
-           </div>
-           <div>
-             <button onClick={toggleFavoriteStatusHandler}>
-               {itemIsFavorite ? 'Remove from Favorites' : 'To Favorites'}
-             </button>
-           </div>
-         </Card>
-       </li>
+            <li className={classes.item}>
+              <Card>
+                <div className={classes.image}>
+                  <img src={props.image} alt={props.title} />
+                </div>
+                <div className={classes.content}>
+                  <h3>{props.title}</h3>
+                  <address>{props.address}</address>
+                  <p>{props.description}</p>
+                </div>
+                <div className={classes.actions}>
+                  <button onClick={toggleFavoriteStatusHandler}>
+                    {itemIsFavorite ? 'Remove from Favorites' : 'To Favorites'}
+                  </button>
+                </div>
+              </Card>
+            </li>
      );
 }   export default Board;
 
