@@ -1,30 +1,26 @@
 import { useDragLayer } from 'react-dnd';
-import { ItemTypes } from './ItemTypes';
-import { TokenDragPreview } from '../token/TokenDragPreview';
-import { snapToGrid } from './snapToGrid';
+import { ItemTypes } from '../board/ItemTypes';
+import { TokenDragPreview } from './TokenDragPreview';
+
+
+
 const layerStyles = {
     position: 'fixed',
     pointerEvents: 'none',
-    zIndex: 100,
+    zIndex: 20,
     left: 0,
     top: 0,
     width: '100%',
     height: '100%',
 };
-function getItemStyles(initialOffset, currentOffset, isSnapToGrid) {
+
+function getItemStyles(initialOffset, currentOffset) {
     if (!initialOffset || !currentOffset) {
         return {
             display: 'none',
         };
     }
     let { x, y } = currentOffset;
-    if (isSnapToGrid) {
-        x -= initialOffset.x;
-        y -= initialOffset.y;
-        [x, y] = snapToGrid(x, y);
-        x += initialOffset.x;
-        y += initialOffset.y;
-    }
     const transform = `translate(${x}px, ${y}px)`;
     return {
         transform,
@@ -44,7 +40,7 @@ export const CustomDragLayer = (props) => {
 
     function renderItem() {
         switch (itemType) {
-            case ItemTypes.BOX:
+            case ItemTypes.TOKEN:
                 return <TokenDragPreview title={item.title}/>;
             default:
                 return null;
@@ -54,7 +50,7 @@ export const CustomDragLayer = (props) => {
         return null;
     }
     return (<div style={layerStyles}>
-			<div style={getItemStyles(initialOffset, currentOffset, props.snapToGrid)}>
+			<div style={getItemStyles(initialOffset, currentOffset)}>
 				{renderItem()}
 			</div>
 		</div>);

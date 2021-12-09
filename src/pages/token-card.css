@@ -1,0 +1,33 @@
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+.token__card-wrapper {
+    justify-content: center;
+}
+
+.token__card {
+    max-width:100;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.token__card:hover{
+    box-shadow: .2rem .5rem 1rem rgba(150, 200, 100, 0.65) !important;
+    background-color: rgba(150, 200, 100, 0.35) !important;
+}
+.token__card:active{
+    box-shadow: .2rem .5rem 1rem rgba(150, 220, 100, 1) !important;
+    background-color: rgba(150, 240, 100, 0.35) !important;
+}

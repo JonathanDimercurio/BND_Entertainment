@@ -52,7 +52,7 @@ function AddBoardForm(props) {
           </Form.Group>
 
               <Button className="w-100" type="submit">
-                Add Token
+                Add Game Board
               </Button>
 
         </Form>

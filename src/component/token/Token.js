@@ -1,12 +1,25 @@
 import { memo } from 'react';
 import smokie from './testToken.png'
-import styles from './user-token.module.css'
+
+const styles = {
+    border: '1px dashed gray',
+    borderRadius: '100%',
+    padding: '0.5rem 1rem',
+    cursor: 'move',
+
+};
+
+
 
 export const Token = memo(function Token({ title, yellow, preview }) {
-    const backgroundColor = yellow ? 'yellow' : 'white';
-    return (<div style={{ ...styles, backgroundColor }} 
-                 role={preview ? 'BoxPreview' : 'Box'}>
+    
+    return (<div 
+                 style={{ ...styles }}
+                 role={preview ? 'tokenPreview' : 'Token'}>
+
 			<img src={smokie} class="rounded-circle" 
-                 alt="Cinque Terre" width="200" height="200"></img>
+                 alt="Cinque Terre" 
+                objectFit='cover' 
+                width='50' ></img>
 		</div>);
 });

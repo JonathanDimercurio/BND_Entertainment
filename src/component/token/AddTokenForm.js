@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 function AddTokenForm(props) {
     const tokenTitleInputRef = useRef();
@@ -31,12 +31,12 @@ function AddTokenForm(props) {
                     </Button>
                   
                     <Form.Control 
-                      type="text"class='' 
+                      type="text"
                       id='email' ref={tokenTitleInputRef} 
                       placeholder='Enter Title'
                       required />
 
-                    <div class='m-2'></div>
+                    <div className='m-2'></div>
                       
                     <Form.Control 
                       type="text" 

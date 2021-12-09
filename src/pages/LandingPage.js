@@ -30,7 +30,7 @@ export default function LandingPage() {
             Change/Upload Token
           </Link>
 
-          <Link to="/addtoken" className="btn btn-primary w-100 mt-3 shadow">
+          <Link to="/addboard" className="btn btn-primary w-100 mt-3 shadow">
             Upload New Map
           </Link>
 

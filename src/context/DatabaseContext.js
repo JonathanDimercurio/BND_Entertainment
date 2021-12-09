@@ -23,11 +23,9 @@ export function useDB() {
 }
 
 export function DBProvider({ children }) {
-    const { currentUser } = useAuth();
     const [tokenListener, setToken] = useState(false);
-    const userColRef = collection(db, 'users/');
-    const tokensColPathRef = collection(db, 'token')   
-
+    const [boardListener, setBoard] = useState(false);
+    
     function addUser(newUserData) {
         return addDoc(collection(db, 'users'), newUserData);
     }
@@ -36,12 +34,12 @@ export function DBProvider({ children }) {
         return addDoc(collection(db, "boards"), newBoard);
     }
 
-    async function setUserToken(user) {
-        let response = await getDoc(db, user.uid);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        setToken(response);
+    async function setUserBoard(board, uid) {
+        return setDoc(doc(db, "userBoard", uid), board, {merge: true})
+      }
+
+    async function setUserToken(token, uid) {
+        return setDoc(doc(db, "userToken", uid), token, {merge: true})
       }
       
     function addToken(newToken) {
@@ -51,9 +49,11 @@ export function DBProvider({ children }) {
     const value = {
         addToken,
         setToken,
-        setUserToken,
         addUser,
         addBoard,
+        setBoard,
+        setUserBoard,
+        setUserToken
         
     };
     

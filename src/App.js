@@ -1,6 +1,6 @@
 import React from "react";
 import RequireAuth from "./util/RequireAuth";
-import { Container } from "react-bootstrap";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { DBProvider } from "./context/DatabaseContext";
@@ -23,7 +23,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 
 function App() {
   return (
-      <Container className="d-flex align-items-center justify-content-center"
+      <div className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh" }} >
           
           
@@ -64,7 +64,7 @@ function App() {
                       
         </Router>
       
-    </Container>
+    </div>
 
 
 

@@ -17,17 +17,23 @@ function NewBoardPage() {
     }
     
 return (
-    <div class='actionable'>
-    <section>
-    <h1 className="display-1 text-center">Game Boards</h1>
-        <br />
-        <h4 className="text-center"> {currentUser.email} </h4>
+    <>
+
+    <div className='actionable'>
+    <h6 className="text-center"> {currentUser.email} </h6>
+        <div className='shadow justify-content-center card'>
+        <div className='card-body'>
+        <h1 className="card-title">Game Boards</h1>
+
+        <div className='w-100 mt-5'>
             <AddBoardForm onAddBoard={addBoardHandler} />
-    </section>
-    <section>
-        <AllBoardsPage />
-    </section>
-    </div>
+        </div></div></div>
+        <br />
+        <br />
+        <div width='100%' float='left'></div>
+            <AllBoardsPage />
+        </div>
+</>
 );
 }
 
