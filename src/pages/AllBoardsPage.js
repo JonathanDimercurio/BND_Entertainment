@@ -1,9 +1,12 @@
+import { Card } from "react-bootstrap";
+import BoardCard from "./BoardCard"
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { db } from '../firebase'
 import { query, collection, onSnapshot, doc, data } from 'firebase/firestore'
+import './AllBoardsPage.module.css'
 
-
+export var setboards =[];
 
 function AllBoardsPage() {
   const [loadedBoards, setLoadedBoards] = useState([]);
@@ -21,9 +24,9 @@ function AllBoardsPage() {
 
       });
         setLoadedBoards(items);
+        setboards = loadedBoards;
         setIsLoading(false);
-      
-    });
+      });
   }
 
   useEffect(() => {
@@ -42,18 +45,28 @@ if (loading) {
 }
 
   return (
+    <>
     <section>
-      <div>
+      
         <h1 className='mt-5'>Uploaded Boards</h1>
-        {loadedBoards.map((board) => (
-          <div key={uuidv4()}>
-            <h2>{board.title}</h2>
-            <img src={board.imageURL} alt={board.title}></img>
-          </div>
+        
+      
+        {loadedBoards.map((props) => (
+          
+          <Card className="map-container"
+                     props={props.title}
+                     key={uuidv4()}>
+            <img className='img-fluid'
+                 src={props.imageURL} 
+                 alt={props.title}>
+            </img>
+          </Card>
+          
         ))}
         
-      </div>
-    </section>
+      
+      </section>
+    </> 
   );
 }
 

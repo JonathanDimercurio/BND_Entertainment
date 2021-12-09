@@ -17,17 +17,17 @@ function NewBoardPage() {
     }
     
 return (
-    <>
+    <div class='actionable'>
     <section>
+    <h1 className="display-1 text-center">Game Boards</h1>
         <br />
-        <h1 className="display-1 text-center">Game Boards</h1>
         <h4 className="text-center"> {currentUser.email} </h4>
             <AddBoardForm onAddBoard={addBoardHandler} />
     </section>
     <section>
         <AllBoardsPage />
     </section>
-    </>
+    </div>
 );
 }
 

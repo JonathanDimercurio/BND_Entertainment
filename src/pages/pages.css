@@ -1,0 +1,17 @@
+.actionable{
+    position:absolute;
+    top: 20px;
+    right: 50%+50px;
+    height: clamp(1rem, 2.5vw, 1.5rem);
+    width: clamp(20rem, 2.5vw, 10rem);
+    justify-content: center;
+    align-self: center;
+    
+}
+.actionable > btn-primary {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.utli {
+    justify-content: space-between;
+}

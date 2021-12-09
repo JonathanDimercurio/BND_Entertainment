@@ -22,38 +22,44 @@ function AddBoardForm(props) {
     }
 
   return (
-          <> 
-            <Card>
-              <Card.Body>
-                <h4 className="text-center mb-4">Add New Board</h4>
-                <Form onSubmit={submitHandler}>
-          
-                  <Form.Group id="title">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control type="text" ref={titleInputRef} required />
-                  </Form.Group>
-          
-                  <Form.Group id="imageURL">
-                    <Form.Label>Image URL</Form.Label>
-                    <Form.Control type="url" ref={imageURLInputRef} required />
-                  </Form.Group>
-          
-                  <Form.Group id="description">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control type="text" ref={descriptionInputRef} required />
-                    <Form.Label>{" "}</Form.Label>
-                  </Form.Group>
-          
-                  <Button className="w-100" type="submit">
-                    Add Board
-                  </Button>
-          
-          
-                </Form>
-              </Card.Body>
-            </Card>
-        </>
-  );
+    <>
+    <Card>
+      <Card.Body>
+        <Form onSubmit={submitHandler}>
+  
+          <Form.Group id="form-floating mt-3 mb-3">
+            <Form.Control 
+              type="text"class='form-floating mt-3 mb-3' 
+              id='title' ref={titleInputRef} 
+              placeholder='Title'
+              required />
+          </Form.Group>
+  
+          <Form.Group>
+            <Form.Control 
+              type="text"class='form-floating mb-3 mt-3' 
+              id='email' ref={imageURLInputRef} 
+              placeholder='Image URL'
+              required />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Control 
+              type="text"class='form-floating mb-3 mt-3' 
+              id='description' ref={descriptionInputRef} 
+              placeholder='Description'
+              required />
+          </Form.Group>
+
+              <Button className="w-100" type="submit">
+                Add Token
+              </Button>
+
+        </Form>
+      </Card.Body>
+    </Card>
+</>
+);
 }
 
 export default AddBoardForm;

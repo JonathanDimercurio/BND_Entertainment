@@ -21,28 +21,31 @@ function AddTokenForm(props) {
 
   return (
           <>
-            <Card>
-              <Card.Body>
-                <h2 className="text-center mb-4">Add New Token</h2>
+            
                 <Form onSubmit={submitHandler}>
           
-                  <Form.Group id="title">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control type="text" ref={tokenTitleInputRef} required />
-                  </Form.Group>
-          
-                  <Form.Group id="imageURL" className="mb-4">
-                    <Form.Label>Image URL</Form.Label>
-                    <Form.Control type="url" ref={tokenInputRef} required />
-                  </Form.Group>
-
-                      <Button className="w-100" type="submit">
+                    <Button 
+                      className="btn btn-primary w-100 mb-3 shadow" 
+                      type="submit">
                         Add Token
-                      </Button>
+                    </Button>
+                  
+                    <Form.Control 
+                      type="text"class='' 
+                      id='email' ref={tokenTitleInputRef} 
+                      placeholder='Enter Title'
+                      required />
 
+                    <div class='m-2'></div>
+                      
+                    <Form.Control 
+                      type="text" 
+                      id='email' 
+                      ref={tokenInputRef} 
+                      placeholder='Enter Image URL'
+                      required />
                 </Form>
-              </Card.Body>
-            </Card>
+                
         </>
   );
 }

@@ -50,7 +50,7 @@ export default function Signup() {
   }
 
   return (
-    <div className="wrapper" >
+    <div className="actionable" >
             <Card className="shadow form-floating" >
                 <Card.Body>
                   <h2 className="text-center form-label">Sign Up</h2>

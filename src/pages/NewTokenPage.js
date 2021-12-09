@@ -3,6 +3,8 @@ import AddTokenForm from '../component/token/AddTokenForm';
 import { useDB } from "../context/DatabaseContext";
 import { useAuth } from "../context/AuthContext";
 import AllTokensPage from "./AllTokensPage";
+import { Container } from "../component/board/Container";
+import { v4 as uuidv4 } from 'uuid';
 
 function NewTokenPage() {
     const { addToken, setToken } = useDB();
@@ -19,15 +21,18 @@ function NewTokenPage() {
 
 return (
     <>
-    <section>
-        <br />
-        <h1 className="display-1 text-center">Game Tokens</h1>
-        <h4 className="text-center"> {currentUser.email} </h4>
+    <div class='actionable'>
+    <h6 className="text-center"> {currentUser.email} </h6>
+        <div class='shadow justify-content-center card'>
+        <div class='card-body'>
+        <h1 className="card-title">Game Tokens</h1>
+        <div class='w-100 mt-5'>
             <AddTokenForm onAddToken={addTokenHandler} />
-    </section>
-    <section>
-        <AllTokensPage />
-    </section>
+        </div></div></div>
+
+
+    </div>
+    <Container key={uuidv4()} props={<AllTokensPage />}></Container>
     </>
 );
 } export default NewTokenPage;

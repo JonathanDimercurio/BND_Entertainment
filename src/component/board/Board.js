@@ -20,8 +20,7 @@ function Board({ loadedBoards }) {
     // 
 
     return (
-            <li>
-              <Card>
+              <Card className='shadow p-4 mb-4 bg-white'>
                 <div>
                   
                 </div>
@@ -34,7 +33,6 @@ function Board({ loadedBoards }) {
                   </button> */}
                 </div>
               </Card>
-            </li>
      );
 }   export default Board;
 

@@ -43,10 +43,12 @@ export default function UpdateProfilePage() {
   }
 
   return (
-    <>
+    <><div className='actionable'>
+      <h6 className="card-title">{currentUser.email}</h6>
       <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Update Profile</h2>
+        <Card.Body class='card-body'>
+          <h1>Update Profile</h1>
+          {error && <Alert variant="danger">{error}</Alert>}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             
@@ -84,6 +86,7 @@ export default function UpdateProfilePage() {
       </Card>
       <div className="w-100 text-center mt-2">
         <Link to="/">Cancel</Link>
+      </div>
       </div>
     </>
   );

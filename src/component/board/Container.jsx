@@ -1,21 +1,22 @@
 import { useCallback, useState } from 'react';
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from './ItemTypes';
-import { DraggableBox } from './DraggableBox';
+import { ItemTypes } from '../token/ItemTypes';
+import { DraggableToken } from '../token/DraggableToken';
 import { snapToGrid as doSnapToGrid } from './snapToGrid';
 import update from 'immutability-helper';
+
 const styles = {
     width: '100%',
     height: '100%',
+    position: 'absolute',
     top: 0,
     left: 0,
-    position: 'absolute',
     opacity: 1,
 };
+
 export const Container = ({ snapToGrid }) => {
     const [boxes, setBoxes] = useState({
-        a: { top: 20, left: 80, title: 'Drag me around' },
-        b: { top: 180, left: 20, title: 'Drag me too' },
+        a: { top: 20, left: 80, title: 'Drag me around', opacity: 1}
     });
     const moveBox = useCallback((id, left, top) => {
         setBoxes(update(boxes, {
@@ -24,6 +25,7 @@ export const Container = ({ snapToGrid }) => {
             },
         }));
     }, [boxes]);
+
     const [, drop] = useDrop(() => ({
         accept: ItemTypes.BOX,
         drop(item, monitor) {
@@ -38,7 +40,12 @@ export const Container = ({ snapToGrid }) => {
             return undefined;
         },
     }), [moveBox]);
+    
     return (<div ref={drop} style={styles}>
-			{Object.keys(boxes).map((key) => (<DraggableBox key={key} id={key} {...boxes[key]}/>))}
+			{Object.keys(boxes).map((key) => 
+            (<DraggableToken 
+                key={key} id={key} 
+                {...boxes[key]}
+            />))}
 		</div>);
 };

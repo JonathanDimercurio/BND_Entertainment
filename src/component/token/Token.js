@@ -1,16 +1,12 @@
 import { memo } from 'react';
-import styles from './Box.module.css'
-import { useDB } from '../../context/DatabaseContext';
+import smokie from './testToken.png'
+import styles from './user-token.module.css'
 
-export const Box = memo(function Box({ title, yellow, preview }) {
+export const Token = memo(function Token({ title, yellow, preview }) {
     const backgroundColor = yellow ? 'yellow' : 'white';
-
-
-    return (
-    
-    <div style={{ ...styles, backgroundColor }} role={preview ? 'BoxPreview' : 'Box'}>
-		<img src={} class="rounded-circle" alt="Cinque Terre" width="200" height="200"></img>
-	</div>
-    
-    );
+    return (<div style={{ ...styles, backgroundColor }} 
+                 role={preview ? 'BoxPreview' : 'Box'}>
+			<img src={smokie} class="rounded-circle" 
+                 alt="Cinque Terre" width="200" height="200"></img>
+		</div>);
 });

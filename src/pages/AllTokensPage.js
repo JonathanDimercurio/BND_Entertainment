@@ -5,6 +5,7 @@ import { query, collection, onSnapshot, doc, data } from 'firebase/firestore'
 
 
 
+
 function AllTokensPage() {
   const [loadedTokens, setLoadedTokens] = useState([]);
   const [loading, setIsLoading] = useState();
@@ -43,8 +44,7 @@ if (loading) {
 
   return (
     <section>
-      <div>
-        <h1 className='mt-5'>Uploaded Tokens</h1>
+        
         {loadedTokens.map((token) => (
           <div key={uuidv4()}>
             <h2>{token.title}</h2>
@@ -52,7 +52,6 @@ if (loading) {
           </div>
         ))}
         
-      </div>
     </section>
   );
 }

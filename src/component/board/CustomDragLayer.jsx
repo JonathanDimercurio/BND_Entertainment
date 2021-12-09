@@ -1,6 +1,6 @@
 import { useDragLayer } from 'react-dnd';
 import { ItemTypes } from './ItemTypes';
-import { BoxDragPreview } from './BoxDragPreview';
+import { TokenDragPreview } from '../token/TokenDragPreview';
 import { snapToGrid } from './snapToGrid';
 const layerStyles = {
     position: 'fixed',
@@ -32,17 +32,20 @@ function getItemStyles(initialOffset, currentOffset, isSnapToGrid) {
     };
 }
 export const CustomDragLayer = (props) => {
-    const { itemType, isDragging, item, initialOffset, currentOffset } = useDragLayer((monitor) => ({
+    const { itemType, isDragging, item, 
+        initialOffset, currentOffset } = useDragLayer((monitor) => ({
+
         item: monitor.getItem(),
         itemType: monitor.getItemType(),
         initialOffset: monitor.getInitialSourceClientOffset(),
         currentOffset: monitor.getSourceClientOffset(),
         isDragging: monitor.isDragging(),
     }));
+
     function renderItem() {
         switch (itemType) {
             case ItemTypes.BOX:
-                return <BoxDragPreview title={item.title}/>;
+                return <TokenDragPreview title={item.title}/>;
             default:
                 return null;
         }

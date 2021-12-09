@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { db } from "../firebase";
+import './pages.css'
 
 export default function LoginPage() {
   const emailRef = useRef();
@@ -28,8 +28,9 @@ export default function LoginPage() {
 
   return (
     <>
-      <Card>
-        <Card.Body>
+    <div className='actionable'>
+      <div class='shadow justify-content-center card mb-1'>
+        <div class='card-body'>
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
@@ -52,10 +53,11 @@ export default function LoginPage() {
           <div className="w-100 text-center mt-4">
             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-4">
+        </div>
+      </div>
+      <div className="card-link card-subtitle util">
         Need an account? <Link to="/signup">Sign Up</Link>
+      </div>
       </div>
     </>
   );
