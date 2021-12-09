@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { db } from "../firebase";
 
 export default function LoginPage() {
   const emailRef = useRef();
@@ -11,7 +12,6 @@ export default function LoginPage() {
   let from = location.state?.from?.pathname || "/";
   let { login } = useAuth();
   const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
@@ -20,9 +20,8 @@ export default function LoginPage() {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      setError("You are in, time for the fun!");
-      navigate(from, { replace: true });
+      const res = await login(emailRef.current.value, passwordRef.current.value);
+        navigate(from, { replace: true });
     } catch {}
         return setError("Please try again, you broke it!");
   }
@@ -33,7 +32,6 @@ export default function LoginPage() {
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          {error && <Alert variant="success">{success}</Alert>}
           <Form onSubmit={handleSubmit}>
             
           <Form.Group id="email">

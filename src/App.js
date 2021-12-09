@@ -35,10 +35,8 @@ function App() {
           <AuthProvider>
           <DBProvider>
           <DndProvider backend={HTML5Backend}>
-            <NavBar />
-            <Wallet />
 
-          
+              <NavBar />
                 <Routes>
           
                   <Route path="/login" element={<LoginPage />} />
@@ -55,11 +53,9 @@ function App() {
                     <RequireAuth>{" "}<AddTokenPage />{" "}</RequireAuth>} />
                   <Route exact path="/gameboard" element={
                     <RequireAuth>{" "}<GamePage />{" "}</RequireAuth>} />
-                  <Route exact path="/allboards" element={
-                    <RequireAuth>{" "}<AllBoardsPage />{" "}</RequireAuth>} />
 
                 </Routes>
-                </DndProvider>
+          </DndProvider>
         </DBProvider>
         </AuthProvider>
                       

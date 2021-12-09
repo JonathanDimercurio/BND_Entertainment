@@ -9,7 +9,6 @@ export default function LandingPage() {
 
   async function handleLogout() {
     setError("");
-
     try {
       await logout();
     } catch {
@@ -24,8 +23,8 @@ export default function LandingPage() {
           <h1 className="text-center mb-5">{"Current User:"}</h1>
           {error && <Alert variant="danger">{error}</Alert>}
           <h5 className="text-center mb-5">{currentUser.email}</h5>
-          <Link to="/profile" className="btn btn-primary w-100 mt-3">
-            Character Creator
+          <Link to="/addtoken" className="btn btn-primary w-100 mt-3">
+            Change/Upload Token
           </Link>
         </Card.Body>
       </Card>
@@ -35,7 +34,7 @@ export default function LandingPage() {
         </Button>
           
           <Link to="/profile">
-          <Button className="w-100 text-right mt-2" variant="link" onClick={""}>
+          <Button className="w-100 text-right mt-2" variant="link">
             Update Profile
           </Button>
           </Link>

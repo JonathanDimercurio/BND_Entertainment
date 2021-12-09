@@ -1,23 +1,19 @@
-import React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Form, Button, Card } from "react-bootstrap";
 
 function AddTokenForm(props) {
-    const titleInputRef = useRef();
-    const imageURLInputRef = useRef();
-    const descriptionInputRef = useRef();
+    const tokenTitleInputRef = useRef();
+    const tokenInputRef = useRef();
 
     function submitHandler(event) {
       event.preventDefault();
         
-      const enteredTitle = titleInputRef.current.value;
-      const enteredImage = imageURLInputRef.current.value;
-      const enteredDescription = descriptionInputRef.current.value;
+      const enteredTitle = tokenTitleInputRef.current.value;
+      const enteredImage = tokenInputRef.current.value;
         
       const tokenData = {
         title: enteredTitle,
-        imageURL: enteredImage,
-        description: enteredDescription,
+        imageURL: enteredImage
       };
       console.log(tokenData)
       props.onAddToken(tokenData);
@@ -32,24 +28,18 @@ function AddTokenForm(props) {
           
                   <Form.Group id="title">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control type="text" ref={titleInputRef} required />
+                    <Form.Control type="text" ref={tokenTitleInputRef} required />
                   </Form.Group>
           
-                  <Form.Group id="imageURL">
+                  <Form.Group id="imageURL" className="mb-4">
                     <Form.Label>Image URL</Form.Label>
-                    <Form.Control type="url" ref={imageURLInputRef} required />
+                    <Form.Control type="url" ref={tokenInputRef} required />
                   </Form.Group>
-          
-                  <Form.Group id="description">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control type="text" ref={descriptionInputRef} required />
-                  </Form.Group>
-          
-                  <Button className="w-100" type="submit">
-                    Add Token
-                  </Button>
-          
-          
+
+                      <Button className="w-100" type="submit">
+                        Add Token
+                      </Button>
+
                 </Form>
               </Card.Body>
             </Card>

@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { db } from '../firebase'
+import { v4 as uuidv4 } from 'uuid';
 import { query, collection, onSnapshot, doc, data } from 'firebase/firestore'
 
 
 
-function AllBoardsPage() {
-  const [loadedBoards, setLoadedBoards] = useState([]);
+function AllTokensPage() {
+  const [loadedTokens, setLoadedTokens] = useState([]);
   const [loading, setIsLoading] = useState();
 
-  const boards = query(collection(db, "boards"));  
+  const boards = query(collection(db, "token"));  
 
-  function getBoards() {
+  function getTokens() {
     setIsLoading(true)
     
     onSnapshot(boards, (querySnapshot) => {
@@ -20,18 +20,18 @@ function AllBoardsPage() {
         items.push(doc.data());
 
       });
-        setLoadedBoards(items);
+        setLoadedTokens(items);
         setIsLoading(false);
       
     });
   }
 
   useEffect(() => {
-    getBoards();
+    getTokens();
   }, []);
   
 
-console.log(loadedBoards);
+console.log(loadedTokens);
 
 if (loading) {
   return (
@@ -44,11 +44,11 @@ if (loading) {
   return (
     <section>
       <div>
-        <h1 className='mt-5'>Uploaded Boards</h1>
-        {loadedBoards.map((board) => (
+        <h1 className='mt-5'>Uploaded Tokens</h1>
+        {loadedTokens.map((token) => (
           <div key={uuidv4()}>
-            <h2>{board.title}</h2>
-            <img src={board.imageURL} alt={board.title}></img>
+            <h2>{token.title}</h2>
+            <img src={token.imageURL} alt={token.title}></img>
           </div>
         ))}
         
@@ -56,5 +56,4 @@ if (loading) {
     </section>
   );
 }
-
-export default AllBoardsPage;
+export default AllTokensPage;

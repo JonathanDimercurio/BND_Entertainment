@@ -4,8 +4,9 @@ import {
   signOut,
   sendPasswordResetEmail,
   onAuthStateChanged,
+  User
 } from "firebase/auth";
-
+import { useAuthState } from 'react-firebase-hooks/auth';
 import React, { useRef, useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
 
@@ -16,9 +17,9 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-    const [currentUser, setCurrentUser] = useState();
-    const [loading, setLoading] = useState(true);
-    const displayNameRef = useRef();
+  const { initialising, user } = useAuthState(auth);
+  const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(true);
 
     function signup(email, password) {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -49,18 +50,26 @@ export function AuthProvider({ children }) {
         setCurrentUser(user);
         setLoading(false);
     });
-    return unsubscribe;
+    return () => {
+      unsubscribe;
+    }
   }, []);
+  
+
+
+
 
   const value = {
+    initialising,
+    user,
     currentUser,
+    setCurrentUser,
     login,
     signup,
     logout,
     resetPassword,
     updateEmail,
     updatePassword,
-    loading,
     setLoading
   };
 
