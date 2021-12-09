@@ -5,7 +5,10 @@ import pIcon from './assets/profileIcon.png'
 import mIcon from './assets/mapsIcon.png';
 import homeIcon from './assets/homeIcon.png';
 import npcIcon from './assets/npcIcon.png';
+import play from './assets/play.png';
 import closeNavIcon from './assets/closeNavIcon.png';
+
+
 
 export default function NavBar() {
     const [style, setStyle] = useState("false");
@@ -50,6 +53,13 @@ export default function NavBar() {
             <li>
                 <Link to="/addtoken">
                     <img id="npcIcon" alt="Icons" src={npcIcon} />
+                </Link>
+            </li>
+            </div>
+            <div>
+            <li>
+                <Link to="/gameboard">
+                    <img id="playicon" alt="Icons" src={play} />
                 </Link>
             </li>
             </div>
