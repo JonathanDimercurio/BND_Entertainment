@@ -5,10 +5,11 @@ import { getEmptyImage } from 'react-dnd-html5-backend';
 import { Token } from './Token'
 
 
-function getStyles(left, top, isDragging) {
+function getStyles(left, top, isDragging ) {
     const transform = `translate3d(${left}px, ${top}px, 0)`;
     return {
         position: 'absolute',
+        cursor: 'move',
         transform,
         WebkitTransform: transform,
         opacity: isDragging ? 0 : 1,
@@ -31,7 +32,7 @@ export const DraggableToken = memo(function DraggableBox(props) {
         preview(getEmptyImage(), { captureDraggingState: true });
     }, []);
     
-    return (<div borderRadius='100%' 
+    return (<div
                 ref={drag} 
             style={getStyles(left, top, isDragging)} 
                 role="DraggableToken">

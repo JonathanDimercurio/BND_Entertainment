@@ -7,16 +7,15 @@ import update from 'immutability-helper';
 const styles = {
     width: '100%',
     height: '100%',
-    position: 'fixed',
+    position: 'absolute',
     top: 0,
     left: 0,
-    backgroundColor: 'rgba(0,0,0,0)',
     opacity: 1,
 };
 
 export const Container = ({ snapToGrid }) => {
     const [boxes, setBoxes] = useState({
-        a: { top: 50, left: 50, title: 'Drag me around', opacity: 1}
+        a: { top: 10, left: 10, title: 'Drag me around', opacity: 1}
     });
     const moveBox = useCallback((id, left, top) => {
         setBoxes(update(boxes, {
@@ -48,3 +47,5 @@ export const Container = ({ snapToGrid }) => {
             />))}
 		</div>);
 };
+
+
